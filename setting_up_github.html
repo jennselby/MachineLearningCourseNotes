@@ -1,0 +1,20 @@
+<h2>Setting Up Github</h2>
+<p>I'm glad you've decided to use version control! I think that you will find it very useful. In version control, each separate project is called a <strong>repository</strong>.</p>
+<p>Here is how to create a new <strong>repository</strong>.</p>
+<ul>
+  <li>From your Github home page (https://github.com/<em>your_username</em>) click on the "Repositories" link in the top center of the page.</li>
+  <li>Click on the green New button at the top right.</li>
+  <li>Pick a name for your repository. If you like, you can write a description to explain your project. Ignore all of the other options and click Create Repository.</li>
+  <li>This should take you to a page with some instructions. We're going to follow something similar to the "... or create a new repository on the command line" section. <strong>Do not close this page yet!</strong></li>
+  <li>In Terminal, <strong>cd</strong> into the directory (or folder, as it is called on Macs) that holds the project that you want to add to version control (you can type "cd " and then drag the folder in from Finder).</li>
+  <li>In Terminal, run the following commands to set up your repository on your own computer and add all of the files in this folder into the repository.
+    <pre>git init<br />git add .<br />git commit -m "Putting my project in version control"</pre>
+Notice the '.' in the second command. That is important; don't miss it.</li>
+  <li>Now we need to take a command from the instructions webpage. You should see a line like
+    <pre>git remote add origin https://github.com:<i>username</i>/<i>repositoryname</i>.git</pre>
+Copy this into Terminal exactly as it is on that page.</li>
+  <li>Finally, we want to push all of our files back to github with this command:
+    <pre>git push -u origin master</pre>
+  </li>
+  <li>Now, if you reload the instructions page in your browser, you should see your files there.</li>
+</ul>
