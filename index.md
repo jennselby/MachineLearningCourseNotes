@@ -2,12 +2,12 @@
 layout: default
 ---
 
-# Machine Learning
+# Course Notes
 
-## Course Notes
+{% include machine_learning_categories.html %}
 
-### Machine Learning Categories
-### Setting up Github
-### Using Github
+{% include setting_up_github.html %}
 
-## Assignments
+{% include using_github.html %}
+
+# Assignments
