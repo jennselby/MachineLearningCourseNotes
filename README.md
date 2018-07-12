@@ -1,9 +1,1 @@
-# Machine Learning
-
-## Course Notes
-
-### Machine Learning Categories
-### Setting up Github
-### Using Github
-
-## Assignments
+# [Machine Learning Course Notes](https://jennselby.github.io/MachineLearningCourseNotes/)
