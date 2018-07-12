@@ -2,7 +2,7 @@
 <p><strong>Github</strong> is a website that allows you to view projects that you are managing with&nbsp;<strong>git</strong>. Git is a&nbsp;<strong>version control</strong> system. A version control system keeps copies of older versions of your code so that you can see the changes that you have made over time or revert back to older versions if you realize that what you are currently doing will not work. Version control can be annoying when you are first getting used to it, but it can also be incredibly useful, and many software developers refuse to work without it.</p>
 <p>Once you have set up your project with Github (see <a href="setting_up_github.html">Setting Up A Github Repository</a>), there are only a couple commands you will need to remember. Each time you have gotten to a good stopping point (maybe you got some new piece of your project finished or the class period is about to end), you want to save a new version of your code.</p>
 <ul>
-  <li>First, you want to understand what changes you have made.</li>
+  <li>First, you want to understand what changes you have made.
     <ul>
       <li>This will show a list of what files have changes in them and any new files that you have added.
           <pre>git status</pre>
@@ -15,7 +15,7 @@
   <li>Any file that you want to save needs to be added for the next version. If you want to save all files, tell git you want to save the entire folder (. is the abbreviation for the current folder) with
     <pre>git add .</pre>
     To save only some of the files, use
-    <pre>git add <i>filename1 filename2 ...</i>
+    <pre>git add <i>filename1 filename2 ...</i></pre>
   </li>
   <li>Once all of the files you want to save are added, then it is time to<strong> commit</strong>, which saves a version locally on your computer. Every time we commit, we want to include a message that explains what changes we made. This will make it easier to understand our code later on, when we might have forgotten why we did what we did.
     <pre>git commit -m "Fixed an error with the data set"</pre>
@@ -23,5 +23,4 @@
   <li>The final step is to push our changes to the Github website, to be saved there.
     <pre>git push</pre>
   </li>
-</li>
 </ul>
