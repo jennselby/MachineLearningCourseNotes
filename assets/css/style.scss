@@ -10,3 +10,19 @@ pre {
 section {
   width: 645px;
 }
+
+nav ul li.tag-h1 {
+  font-size: 1.5em;
+}
+
+nav ul li.tag-h2 {
+  font-size: 1.2em;
+}
+
+nav ul li.tag-h3 {
+  font-size: 0.9em;
+}
+
+nav ul li.active a {
+  color: #4276b6;
+}
