@@ -11,6 +11,15 @@ section {
   width: 645px;
 }
 
+#attribution {
+    width: 230px;
+    position: fixed;
+    top: 180px;
+    left: 50%;
+    margin-left: -580px;
+    text-align: right;
+}
+
 nav ul li.tag-h1 {
   font-size: 1.5em;
 }
