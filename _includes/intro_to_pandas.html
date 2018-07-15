@@ -1,0 +1,37 @@
+<h2>Pandas</h2>
+<p>Pandas is a popular Python library that contains many tools allowing you to more easily visualize, inspect or slice data. You may find it helpful in this class.</p>
+<p>To install Pandas, in Terminal, run</p>
+<pre>pip3 install pandas</pre>
+<div class="indented">
+<p>Note: you may have to rerun the above command with `sudo` if it gives you a permission error. E.g., run:</p>
+<pre>sudo pip3 install pandas</pre>
+</div>
+<p>After you've successfully installed pandas, let's try using the library in conjunction with a Jupyter Notebook. Specifically, we're going to open a csv (comma separated value) file in Pandas and visualize it in Jupyter Notebook.</p>
+<ol>
+<li><p>Navigate in Terminal (by using `cd`) to a folder where you have a .csv file.</p>
+<p>If you do not have a .csv file, you can download the Student Performance Dataset here: <a href="http://archive.ics.uci.edu/ml/datasets/student+performance">http://archive.ics.uci.edu/ml/datasets/student+performance</a></p>
+</li>
+<li>Start up Jupyter in Terminal
+    <pre>jupyter notebook</pre>
+</li>
+<li>Create a new Python3 notebook and save it to give it a name.</li>
+<li>In the first cell type the following command and execute it by pressing SHIFT+ENTER:
+<pre>import pandas</pre>
+</li>
+<li>
+<p>In the next cell type and execute the following line of code:</p>
+<pre>data = pandas.read_csv('&lt;&lt;YOUR CSV FILENAME HERE&gt;&gt;')</pre>
+</li>
+<li>In the next cell after executing the last one, type:
+<pre>data.head()</pre>
+</li>
+</ol>
+<p>That should visualize the first 5 lines of your csv!</p>
+<p>To learn more about pandas, you can use one of the following tutorials:</p>
+<ul>
+<li>[Suggested] Download and open this <a href="assets/ipynb/JupyterNotebookandPandasIntroduction.ipynb">
+.ipynb file</a> in Jupyter Notebook.
+</li>
+<li><a href="http://pythonforengineers.com/introduction-to-pandas/">Practical Introduction to Pandas</a></li>
+<li><a href="https://pandas.pydata.org/pandas-docs/stable/10min.html">Official Documentation 10 min intro to Pandas</a></li>
+</ul>
