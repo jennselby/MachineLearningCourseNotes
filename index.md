@@ -17,4 +17,6 @@ layout: default
 
 {% include machine_learning_categories.html %}
 
+{% include linear_regression.html %}
+
 # Assignments
