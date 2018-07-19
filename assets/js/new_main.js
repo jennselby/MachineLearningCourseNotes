@@ -36,7 +36,7 @@ $(function() {
   $(".jump-to-section").click(function(event) {
     var position = $($(this).attr("href")).offset().top - 190;
     $("html, body").animate({scrollTop: position}, 400);
-    $("nav ul li").each(function() {
+    $("nav ul li.active").each(function() {
       $(this).removeClass("active");
     });
     $('#nav-' + $(this).attr("href").substring(1)).addClass("active");
