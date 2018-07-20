@@ -47,3 +47,18 @@ $(function() {
 
   $('img').on('load', sectionHeight);
 });
+
+$(document).ready(function () {
+  // if user came by a direct link to a page section, adjust the page location for them and set
+  // active correctly
+  var internal_href_index = window.location.href.indexOf('#');
+  if (internal_href_index != -1) {
+    var href = window.location.href.substring(internal_href_index);
+    var position = $(href).offset().top - 190;
+    $("html, body").animate({scrollTop: position}, 400);
+    $("nav ul li.active").each(function() {
+      $(this).removeClass("active");
+    });
+    $('#nav-' + href.substring(1)).addClass("active")
+  }
+});
