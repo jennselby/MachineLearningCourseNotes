@@ -16,7 +16,7 @@ var sectionHeight = function() {
 $(window).resize(sectionHeight);
 
 $(function() {
-  $("section h1, section h2, section h3").each(function(){
+  $("section h1, section h2").each(function(){
     let headerName = $(this).text();
     let headerId = headerName.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g,'');
     $("nav ul").append("<li class='tag-" + this.nodeName.toLowerCase() + "' id='nav-" + headerId +
