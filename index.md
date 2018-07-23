@@ -19,4 +19,10 @@ layout: default
 
 {% include linear_regression.html %}
 
-# Assignments
+{% include ridge_lasso_elastic_net.html %}
+
+# Example Datasets
+
+* [Storm Data](https://www.ncdc.noaa.gov/stormevents/ftp.jsp) -- in particular, look at the [Storm Data Format Description](http://www1.ncdc.noaa.gov/pub/data/swdi/stormevents/csvfiles/Storm-Data-Export-Format.docx) 
+
+* [Student Performance Data](http://archive.ics.uci.edu/ml/datasets/student+performance)
