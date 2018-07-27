@@ -1,0 +1,32 @@
+<h2>Binomial Logistic Regression</h2>
+<p><strong>Inputs:</strong> numerical (like linear regression)</p>
+<p><strong>Output:</strong> a number between 0 and 1, inclusive (that is, a probability).</p>
+<p><strong>Supervised: </strong>To get an initial model, you need to give it sample input/output pairs, where each output would be either 0 or 1.</p>
+<p><strong>The motivation</strong>: You have sets of observations that fall into two different types. Given a new set of observations, you'd like to predict which type it is. You want to classify an input by looking at the probability (which has to be between 0 and 1) that it is the first type. But with linear regression, there is nothing that restricts the output. What happens when the combination of parameters and inputs your model generates outputs that ranges far beyond 1 or below 0? Logistic regression uses a function called the <a target="_blank" href="https://en.wikipedia.org/wiki/Logit">logit</a> that constrains the output between 0 and 1.</p>
+<p>For example, you want to classify someone as being a vampire or not. You know their height, weight, how many seconds they can last in the sun before burning up and how they would rate the taste of garlic on a scale of 1-10. Your desired output is one of two things: "vampire" or "not vampire."</p>
+<p>After you train your logistic regression model using the heights, weights, time in the sun, and garlic preferences of beings whose vampire status is known, it can predict the probability of a new person based on their characteristics (e.g., Harold is about 90% likely to be a vampire).</p>
+<p><strong>Using the model as a classifier: </strong>Once you have a trained logistic regression model, if you want it to predict which type an input is (vampire/not vampire), then you need to pick a threshold above which to classify someone as a vampire. For example, if you picked p = 0.5, then you could say that for all new people, if passing their data through the model yielded a probability &gt; 0.5, you would be getting the holy water and garlic ready.</p>
+<p><strong>Using the model as a regression: </strong>Perhaps what you really want is to know how each of your inputs affects the chance that a sample is one category or another. Logistic regression can give you weights for each of your inputs, the numbers it is multiplying each input by within the logit function to get the output probabilities.</p>
+<p><strong>The math: <br /></strong>Just like in linear regression, we are looking to find the best fit for parameters that we would multiply by each input. That is, if we have four inputs we are looking at, we want to find a, b, c, and d that best fit the data for an equation</p>
+<p><center>y = a*x<sub>1</sub> + b*x<sub>2</sub> + c*x<sub>3</sub> + d*x<sub>4</sub></center></p>
+<p>Below, we'll represent the right side of the equation as "inputs*parameters" as a shorthand.</p>
+<p>Since your output is a probability, it needs to satisfy two constraints:</p>
+<ol>
+<li>Your output always needs to be positive.</li>
+<li>Your positive output always needs to be between 0 and 1.</li>
+</ol>
+<p>How do you ensure the first condition? You use the exponential function in constructing your regression equation. Specifically, you could try</p>
+<p><center>probability = e<sup>inputs*parameters</sup></center></p>
+<p>Now how do you also satisfy the second condition? You use a fraction, getting a probability with</p>
+  <div><center>e<sup>inputs*parameters</sup></center></div>
+  <div class="fraction_divider" style="width: 150px;"></div>
+  <div><center>1 + e<sup>inputs*parameters</sup></center></div>
+<p>This ends up being your regression model. Then you can perform some algebra so that you have the "parameters * input" on one side of the equation, and you will end up with</p>
+<p><center>log<sub>2</sub>(p/(1-p)) = inputs*parameters</center></p>
+<p>The log<sub>2</sub>(p/(1-p)) is known as the "logistic function" or "<a target="_blank" href="https://en.wikipedia.org/wiki/Logit">inverse logit</a>", which gives the technique its name.</p>
+<p><strong>Training:</strong> As with linear regression, we need to have a cost function that we are minimizing. In this case, it is more complicated than that of linear regression, but it is similar to minimizing the sum of the squares of the errors. For some of the gritty details, check out the logistic regression section in <a target="_blank" href="http://openclassroom.stanford.edu/MainFolder/DocumentPage.php?course=MachineLearning&amp;doc=exercises/ex5/ex5.html">this lesson</a>.</p>
+<p>To learn more about logistic regression, and to see a lot of the math, check out the following resources:</p>
+<ol>
+<li><a target="_blank" href="http://www.stat.cmu.edu/~cshalizi/350/lectures/26/lecture-26.pdf">University lecture notes</a></li>
+<li><a target="blank" href="https://www.youtube.com/embed/-Z2a_mzl9LM?feature=oembed&amp;rel=0">15-min video on the intuition behind logistic regression</a></li>
+</ol>
