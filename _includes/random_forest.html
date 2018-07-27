@@ -1,0 +1,66 @@
+<h2>Random Forest</h2>
+<p>The Random Forest (RF) is a commonly used classification technique. The reason it's called a Random Forest is because it builds large numbers of decision trees, where each tree is built using a random subset of the total data that you have.</p>
+<p>The RF algorithm is what is known as an <strong>ensemble technique</strong>. The word "ensemble" refers to a group of items or people. You may have heard it used in the context of music, where a group of musicians who perform together are known as an ensemble. By having each musician perform independently, yet also together with the group, the music they create is superior to any of their own individual abilities. The same may be true of Random Forest. Its predictive power is superior to that of any particular tree in the forest because it "averages" across all of the trees. You can read more about sklearn's documentation on ensemble methods (including a heavy emphasis on ensemble tree-based methods) <a target="_blank" href="http://scikit-learn.org/stable/modules/ensemble.html">here</a>.</p>
+<p>The image below illustrates how an ensemble technique may be a better fit than any particular algorithm:</p>
+<p><img src="http://blog.citizennet.com/hs-fs/hubfs/Imported_Blog_Media/skitch.png?t=1505239081246&amp;width=482&amp;name=skitch.png" /></p>
+<p>(Credit: <a target="_blank" href="https://citizennet.com/blog/2012/11/10/random-forests-ensembles-and-performance-metrics/">https://citizennet.com/blog/2012/11/10/random-forests-ensembles-and-performance-metrics/)</a></p>
+<p>The grey lines are individual predictors, and the red line is the average of all the grey lines. You can see that the red is less squiggly than the others. It's more stable and less overfit to the data.</p>
+<p><a target="_blank" href="https://www.microsoft.com/en-us/research/project/decision-forests/">Random Forests perform so well that Microsoft uses them in their Kinect technology</a>.</p>
+<h3>Algorithm Behind Random Forest</h3>
+<p>(Some material taken from <a target="_blank" href="https://citizennet.com/blog/2012/11/10/random-forests-ensembles-and-performance-metrics/">https://citizennet.com/blog/2012/11/10/random-forests-ensembles-and-performance-metrics/</a>)</p>
+<ol>
+<li>Choose to build T number of trees. Each tree consists of a set of nodes at which the data splits. The first, or root, node, contains all of the data, which is then split amongst its child nodes.</li>
+<li>To build each tree, do the following:</li>
+<ol>
+<li>Sample <em>N</em> data points (where N is about 66% as large as the total number of your data points) at random with replacement to create a subset of the data. This is your training data for this tree.</li>
+<li>For each node:
+<ol>
+<li>Choose <em>m</em> predictor variables at random from all the predictor variables. (See below for how to choose <em>m</em>.)</li>
+<li>Out of those <em>m</em>, use the predictor variable that provides the best split, according to some objective function, to do a split for that node.</li>
+</ol>
+</li>
+</ol>
+</ol>
+<h3>Measuring the best split: Gini or Entropy</h3>
+<p>The python library scikit-learn provides two objective functions that you can use to find the best split: Gini (also known as Impurity) and Entropy (also known as Information Gain). Both are a measurement of how well a particular split separates the classes.</p>
+<p>The worst split for both Gini and Entropy are ones that split the two nodes such that classes are evenly divided between the two nodes (that is, both nodes contain 50% of Class A and 50% of Class B).</p>
+<p>How do you choose between Gini and Entropy? Great question. There's no hard and fast rule. The general consensus is that the choice of the particular splitting function doesn't really impact the split of the data.</p>
+<h3>Regression: Minimizing sum of squared errors</h3>
+<p>In the case that you use RF for regression, the construction of the forest is the same with the exception of how you choose the splits. In the case of regression, the nodes are split now based upon how well the split minimizes the sum of squared errors (real values - predictions) for each split.</p>
+<h3>Choosing <em>m</em></h3>
+<p>There are three slightly different systems:</p>
+<ul>
+<li>Random splitter selection: <em>m</em>=1</li>
+<li>Breiman's bagger: <em>m</em>= total number of predictor variables</li>
+<li>Random forest: <em>m</em> much smaller than the number of predictor variables. The creator of the RF algorithm, Leo Brieman suggests three possible values for m: &frac12;&radic;<em>v</em>, &radic;<em>v</em>, and 2&radic;<em>v</em> where <em>v</em> is the number of predictor variables.</li>
+</ul>
+<p>The intuition behind choosing <em>m</em> is that a lower m reduces correlation between trees, but it also reduces the predictive power of each tree (higher bias, lower variance in predictions). A higher <em>m</em> increases correlation between trees but also the predictive power of each tree (lower bias, higher variance in predictions).</p>
+<p>Why is this? Well if the trees are uncorrelated (e.g., low <em>m</em>), they are unlikely to have shared many features in common and variances in individual trees will be smoothed over by the other trees in the forest (e.g., a funky tree will be outvoted by its peers if its peers used different features). Similarly, a lower choice of <em>m</em> will lead to trees that are less predictive (higher bias), but the RF as a whole will have a lower variance.</p>
+<h3>Using Random Forest</h3>
+<ul>
+<li>Regression: Run a sample down all trees, and simply average over the predictions of all trees.</li>
+<li>Classification: A sample is classified to be in the class that's the majority vote over all trees.</li>
+</ul>
+<h3>Upsides of Random Forest</h3>
+<ul>
+<li>The Random Forest minimizes variance and is only as biased as a single decision tree. Bias is the amount that your algorithm is expected to be "off" of the true value by. Variance describes how "unstable" your predictions are. The bias of a RF is the same as the bias of a single tree. However, you can control variance by building many trees and averaging across them. This is also described as the balance between overfitting and underfitting.</li>
+<li>You get estimation of generalized error for free since each tree is built only on two thirds of the data. For each tree, you can take the one third that you didn't use and treat that as your "test set" to calculate error. Your estimate of generalization error is the average of all errors across all trees in your Random Forest.</li>
+<li>This algorithm is parallelizable, making it faster to create. That's because each tree can be built independently of other trees.</li>
+<li>It works the best on many types of classification problems (particularly ones that don't involve images or other highly structured data), outperforming K-NN, logistic regression, CART, neural networks, and SVMs.</li>
+<li>The algorithm is intrinsically multiclass/multinomial (unlike SVMs and binomial logistic regression).</li>
+<li>It can work with a lot of features since you only take a random subset of features. It doesn't seem to suffer from the "curse of dimensionality."</li>
+<li>It can work with features of different types (same with a decision tree, not so with SVM or logistic regression).</li>
+<li>You also get an intuitive sense of variable importance: randomly permute data for a particular feature, and looks to see how much generalized error increased.</li>
+<li>The RF is a non-parametric method, which means it doesn't assume a particular probability distribution. Logistic and linear regression make certain assumptions about the data (e.g., normally distributed errors).</li>
+</ul>
+<h3>Downsides of Random Forest</h3>
+<ul>
+<li>The RF, just like a tree, interpolates between datapoints, which means it doesn't fit with outliers well. Since the RF just takes an average of the "nearest neighbors" of the new datapoint, if it isn't close to any of the neighbors RF will underestimate or overestimate it.</li>
+<li>The RF decision boundary is the superposition of all of the decision boundaries of each of its trees. The trees' decision boundaries are discrete, oblique decision boundaries, making RF's decision boundary non-continuous.</li>
+<li>It's less interpretable than a decision tree. You can't easily draw out a tree for another human being to interpret.</li>
+</ul>
+<h3>Variations of Random Forest</h3>
+<ul>
+<li>AdaBoost: "Adaptive Boosting" The way that it works is you build a bunch of trees, except each tree is built "knowing" the error of the previous one. It "overweights" these errors so that the successive tree tries to fit to these errors more.</li>
+<li>Gradient Boosted Trees: Boosting is the general class of techniques used to modify learning algorithms. AdaBoost is one example of a boosting. Gradient Boosting is similar to AdaBoost except that rather than using weights to "update" future trees, future trees are created by finding the "gradient". You can learn more by watching <a target="_blank" href="https://www.youtube.com/embed/sRktKszFmSk?feature=oembed&amp;rel=0">this 11-min video:</a></li>
+</ul>
