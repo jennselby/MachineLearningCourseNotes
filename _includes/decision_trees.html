@@ -1,0 +1,33 @@
+<h2>Decision Trees</h2>
+<p>Decision Trees allow you to classify data by creating a branching structure that divides up the data. By following the tree for a particular input, you can arrive at a decision for that input. Below is visualization of someone making a decision around giving a loan:</p>
+<p><img src="http://www.cse.unsw.edu.au/~billw/cs9414/notes/ml/06prop/id3/dtree.gif" width="512" height="290" /></p>
+<p>The above image is an example of a decision tree the loan approval officer of a bank might mentally go through when trying to figure out whether to approve a loan or not. The bank may want to try to minimize the risk of giving a loan to someone who won't pay it back (this is them trying to minimize their "error function").</p>
+<p>Of course, minimizing error does not always make our models fair or ethical. Basing our predictions on data from the past makes intuitive sense, but it can cause problems, because the future does not always look like the past and<em> many times we don't want to replicate the mistakes of the past. </em>We'll talk more about these ethical issues later.</p>
+<h3>How do you create a Decision Tree model?</h3>
+<p>Imagine you're given a large dataset of people and whether they're vampires or not. You want to build a machine learning model that is trained on this data that can best predict whether new people are vampires or not.</p>
+<p>Say your dataset has the following 3 features that you can use as inputs to train your model:</p>
+<ol>
+<li>How long it takes the person until their skin starts burning in the sun</li>
+<li>How many cloves of garlic they can eat before they have to stop</li>
+<li>Whether their name is Dracula or not.</li>
+</ol>
+<p>A Decision Tree model is essentially trained on your data by doing the following:</p>
+<ol>
+<li>Select an attribute: for example, select the Name-Is-Dracula attribute</li>
+<li>Split along that attribute: split the data into those for whom the data is Yes and No</li>
+<li>For each of these buckets of data (aka the "child nodes"), figure out the next best attribute to split on</li>
+<li>Repeat this process until a "stopping condition" is met. Examples of stopping conditions:
+<ul>
+<li>There's too little data left to reasonably split</li>
+<li>All the data belong to one class (e.g., all the data in the child node are vampires)</li>
+<li>The tree has grown too large</li>
+</ul>
+</li>
+</ol>
+<p>How do you choose the "best split"? The sklearn library provides two methods that you can choose between to find the best split: Gini (also known as Impurity) and Entropy (also known as Information Gain) that you can give as inputs to a Decision Tree model. Both are a measurement of how well a particular split was able to separate the classes.</p>
+<p>To learn more about the difference between these, and other, splitting criteria, you can use resources such as:</p>
+<ul>
+<li><a target="_blank" href="https://www.slideshare.net/marinasantini1/lecture-4-decision-trees-2-entropy-information-gain-gain-ratio-55241087">https://www.slideshare.net/marinasantini1/lecture-4-decision-trees-2-entropy-information-gain-gain-ratio-55241087</a></li>
+<li><a target="_blank" href="https://sebastianraschka.com/faq/docs/decisiontree-error-vs-entropy.html">https://sebastianraschka.com/faq/docs/decisiontree-error-vs-entropy.html</a></li>
+</ul>
+<p>You can also take a look at this <a target="_blank" href="https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/">detailed tutorial</a> on implementing decision trees.</p>
