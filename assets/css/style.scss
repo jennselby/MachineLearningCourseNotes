@@ -3,6 +3,8 @@
 
 @import "{{ site.theme }}";
 
+/* TODO: This now looks _horrible_ in smaller screen sizes. */
+
 pre {
   background: #eeeeee;
 }
