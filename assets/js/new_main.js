@@ -1,6 +1,8 @@
 // original file at
 // https://github.com/pages-themes/leap-day/blob/721ef5c3a4441b3f35199e10101718cd23891d60/assets/js/main.js
 
+var positionOffset = 30; // have to scroll down a bit more to get out from under the banner
+
 var sectionHeight = function() {
   var total    = $(window).height(),
       $section = $('section').css('height','auto');
@@ -26,16 +28,16 @@ $(function() {
   $("nav ul li:first-child a").parent().addClass("active");
 
   $("nav ul li").on("click", "a", function(event) {
-    var position = $($(this).attr("href")).offset().top - 190;
-    $("html, body").animate({scrollTop: position}, 400);
+    var position = $($(this).attr("href")).position().top - positionOffset;
+    $(".main-panel").animate({scrollTop: position}, 400);
     $("nav ul li a").parent().removeClass("active");
     $(this).parent().addClass("active");
     event.preventDefault();
   });
 
   $(".jump-to-section").click(function(event) {
-    var position = $($(this).attr("href")).offset().top - 190;
-    $("html, body").animate({scrollTop: position}, 400);
+    var position = $($(this).attr("href")).position().top - positionOffset;
+    $(".main-panel").animate({scrollTop: position}, 400);
     $("nav ul li.active").each(function() {
       $(this).removeClass("active");
     });
@@ -54,8 +56,8 @@ $(document).ready(function () {
   var internal_href_index = window.location.href.indexOf('#');
   if (internal_href_index != -1) {
     var href = window.location.href.substring(internal_href_index);
-    var position = $(href).offset().top - 190;
-    $("html, body").animate({scrollTop: position}, 400);
+    var position = $(href).position().top - positionOffset - 15; // why an extra 15? I wish I understood. TODO
+    $(".main-panel").animate({scrollTop: position}, 400);
     $("nav ul li.active").each(function() {
       $(this).removeClass("active");
     });

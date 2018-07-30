@@ -1,5 +1,9 @@
 <!doctype html>
-<!-- original file from https://raw.githubusercontent.com/pages-themes/leap-day/master/_layouts/default.html -->
+<!--
+  Sources:
+    https://raw.githubusercontent.com/pages-themes/leap-day/master/_layouts/default.html
+    https://benfrain.com/independent-scrolling-panels-body-scroll-using-just-css/
+ -->
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
     <meta charset="utf-8">
@@ -16,6 +20,7 @@
   </head>
   <body>
 
+	<div class="banner">
       <header>
         <h1>{{ site.title | default: site.github.repository_name }}</h1>
       </header>
@@ -34,15 +39,19 @@
           </div>
         {% endif %}
       </div><!-- end banner -->
-
+    </div>
     <div class="wrapper">
-       <div id="attribution"><small>Github Pages Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></div>
+     <div class="nav-panel">
       <nav>
         <ul></ul>
       </nav>
+       <div id="attribution"><small>Github Pages Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></div>
+     </div>
+     <div class="main-panel">
       <section>
         {{ content }}
       </section>
+     </div>
     </div>
   </body>
 </html>

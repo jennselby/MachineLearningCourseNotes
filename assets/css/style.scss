@@ -7,19 +7,6 @@ pre {
   background: #eeeeee;
 }
 
-section {
-  width: 645px;
-}
-
-#attribution {
-    width: 230px;
-    position: fixed;
-    top: 180px;
-    left: 50%;
-    margin-left: -580px;
-    text-align: right;
-}
-
 nav ul li.tag-h1 {
   font-size: 1.5em;
 }
@@ -48,4 +35,106 @@ div.wrapper section h1 {
   background-color: black;
   height: 1px;
   margin: 0 auto;
+}
+
+/*
+ * CSS for independently-scrolling sections from
+ * https://benfrain.com/independent-scrolling-panels-body-scroll-using-just-css/
+ */
+
+/* Original author loves them some border-box*/
+* {
+    box-sizing: border-box;
+}
+/* This just stops horizontal scrolling if anything overflows the width */
+body {
+    overflow-x: hidden;
+}
+
+/* Just removing default browser padding/margin */
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+/*
+   Flexbox gives us the flexiness we need. The top just stays put as there is no scrolling on the body due to the
+   page never exceeding viewport height
+ */
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    position: relative;
+    z-index: 10;
+    height: 100px;
+}
+/*
+   This is our main wrapping element, it's made 110vh high to ensure it is always the correct size and then moved
+   into place and padded with negative margin and padding
+ */
+.wrapper {
+    display: flex;
+    overflow: hidden;
+    height: 110vh;
+    margin-top: -150px;
+    padding-top: 150px;
+    position: relative;
+    width: 100%;
+    backface-visibility: hidden;
+    will-change: overflow;
+}
+/*
+  All the scrollable sections should overflow and be whatever height they need to be. As they are flex-items
+  (due to being inside a flex container) they could be made to stretch full height at all times if needed.
+  WebKit inertia scrolling is being added here for any present/future devices that are able to make use of it.
+ */
+.nav-panel,
+.main-panel {
+    overflow: auto;
+    height: auto;
+    padding: .5rem;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+}
+/*
+   Entirely optional - original author just wanted to remove the scrollbar on WebKit browsers as they find them ugly
+ */
+.nav-panel::-webkit-scrollbar,
+.main-panel::-webkit-scrollbar {
+    display: none;
+}
+
+/*
+   nav panel is a set size while the main panel is set to flex one so it occupies all remaining space.
+ */
+
+.nav-panel {
+    width: 260px;
+}
+
+.main-panel {
+    flex: 1;
+}
+
+/*
+  Changes to the original styling to make it work with the new individually scrollable panels
+ */
+#banner {
+  top: 90px;
+}
+
+nav {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  margin-left: 0px;
+  margin-top: 10px;
+  padding-top: 30px;
+}
+
+section {
+  margin-top: 10px;
+  width: 742px;
 }
