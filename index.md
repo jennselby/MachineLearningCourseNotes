@@ -25,6 +25,18 @@ layout: default
 
 {% include regression_validation.html %}
 
+{% include classification.html %}
+
+{% include logistic_regression.html %}
+
+{% include decision_trees.html %}
+
+{% include random_forest.html %}
+
+{% include naive_bayes.html %}
+
+{% include support_vector_machines.html %}
+
 # Example Datasets
 
 * [Storm Data](https://www.ncdc.noaa.gov/stormevents/ftp.jsp){:target="_blank"} -- in particular, look at the [Storm Data Format Description](http://www1.ncdc.noaa.gov/pub/data/swdi/stormevents/csvfiles/Storm-Data-Export-Format.docx){:target="_blank"} 
