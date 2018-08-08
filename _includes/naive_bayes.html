@@ -26,3 +26,5 @@
 <p><center>2 ^ (-1/(num_test_points) * sum_over_test_points( log<sub>2</sub>model_prob(test_point) ) )</center></p>
 <p>For instance, if you have a classification problem, for each test point, you would see what probability your model gives for the correct class (and only the correct class) for that point and take the log<sub>2</sub> of that. Add all of these up, take the average, and raise 2 to that average.</p>
 <p>See <a target="_blank" href="https://en.wikipedia.org/wiki/Perplexity">Wikipedia</a> and <a target="_blank" href="https://jamesmccaffrey.wordpress.com/2016/08/16/what-is-machine-learning-perplexity/">this blog post</a> for more information.</p>
+<h3>Example Code</h3>
+<p>See our <a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningCourseNotes/blob/master/assets/ipynb/NaiveBayes.ipynb">Naive Bayes Juypter Notebook</a> that analyses the 20 newsgroups dataset that is included in scikit-learn.</p>
