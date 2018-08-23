@@ -24,6 +24,9 @@ $(function() {
     $("nav ul").append("<li class='tag-" + this.nodeName.toLowerCase() + "' id='nav-" + headerId +
                        "'><a href='#" + headerId + "'>" + headerName + "</a></li>");
     $(this).attr("id", headerId);
+    if ($(this).prev().length && $(this).prev().prop('tagName').toLowerCase() !== 'h1') {
+        $(this).before("<hr>");
+    }
   });
   $("nav ul li:first-child a").parent().addClass("active");
 
