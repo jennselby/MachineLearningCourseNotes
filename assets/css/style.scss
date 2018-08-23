@@ -74,12 +74,6 @@ strong {
   color: #333;
 }
 
-.wrapper {
-  width:650px;
-  margin:0 auto;
-  position:relative;
-}
-
 section img {
   max-width: 100%;
 }
@@ -104,7 +98,7 @@ code {
 
 pre {
   padding:8px 15px;
-  background: #333333;
+  background: #eeeeee;
   border-radius: 3px;
   border:1px solid #c7c7c7;
   overflow: auto;
@@ -190,11 +184,12 @@ header {
 #banner {
   z-index: 100;
   left:0;
-  right:50%;
+  right:0px;
   height: 50px;
-  margin-right:-382px;
+  margin-right:0px;
+  width: 100%;
   position: fixed;
-  top: 115px;
+  top: 90px;
   background: #ffcc00;
   border: 1px solid #f0b500;
   box-shadow: 0px 1px 3px rgba(0,0,0,.25);
@@ -276,10 +271,10 @@ header {
 }
 
 section {
-  width:590px;
+  width: 80%;
   padding: 30px 30px 50px 30px;
   margin: 20px 0;
-  margin-top: 190px;
+  margin-top: 10px;
   position:relative;
   background: #fbfbfb;
   border-radius: 3px;
@@ -293,10 +288,9 @@ small {
 
 nav {
   width: 230px;
-  position: fixed;
-  top: 220px;
-  left:50%;
-  margin-left:-580px;
+  margin-left:0px;
+  margin-top: 10px;
+  padding-top: 30px;
   text-align: right;
 
   ul {
@@ -521,10 +515,6 @@ footer {
 }
 
 
-pre {
-  background: #eeeeee;
-}
-
 nav ul li.tag-h1 {
   font-size: 1.5em;
 }
@@ -539,10 +529,6 @@ nav ul li.tag-h3 {
 
 nav ul li.active a {
   color: #4276b6;
-}
-
-div.wrapper section h1 {
-  font-size: 36px;
 }
 
 .indented {
@@ -634,28 +620,4 @@ body {
 
 .main-panel {
     flex: 1;
-}
-
-/*
-  Changes to the original styling to make it work with the new individually scrollable panels
- */
-#banner {
-  top: 90px;
-  right: 0px;
-  margin-right: 0px;
-  width: 100%;
-}
-
-nav {
-  position: relative;
-  top: 0px;
-  left: 0px;
-  margin-left: 0px;
-  margin-top: 10px;
-  padding-top: 30px;
-}
-
-section {
-  margin-top: 10px;
-  width: 742px;
 }
