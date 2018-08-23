@@ -292,12 +292,17 @@ nav {
       // position:relative;
       // right:-12px;
 
+      &.active {
+        a {
+          color: #4276b6;
+        }
+      }
+
       &.tag-h1 {
-        font-size: 1.2em;
+        font-size: 1.5em;
 
         a {
           font-weight: bold;
-          color: #333;
         }
 
         + .tag-h2 {
@@ -306,6 +311,7 @@ nav {
       }
 
       &.tag-h2 {
+        font-size: 1.2em;
 
         + .tag-h1 {
           margin-top:10px;
@@ -318,11 +324,6 @@ nav {
 
       &:hover { color: #999; }
     }
-
-    // .active {
-    //   border-right:solid 4px #39C;
-    //   padding-right:13px;
-    // }
   }
 }
 
@@ -500,22 +501,6 @@ footer {
   }
 }
 
-
-nav ul li.tag-h1 {
-  font-size: 1.5em;
-}
-
-nav ul li.tag-h2 {
-  font-size: 1.2em;
-}
-
-nav ul li.tag-h3 {
-  font-size: 0.9em;
-}
-
-nav ul li.active a {
-  color: #4276b6;
-}
 
 .indented {
   margin-left: 5em;
