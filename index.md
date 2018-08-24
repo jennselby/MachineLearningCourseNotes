@@ -1,17 +1,6 @@
 ---
 layout: default
 ---
-# Setup and Tools
-
-{% include setting_up_python3.html %}
-
-{% include setting_up_github.html %}
-
-{% include using_github.html %}
-
-{% include intro_to_jupyter.html %}
-
-{% include intro_to_pandas.html %}
 
 # Course Notes
 
@@ -36,6 +25,18 @@ layout: default
 {% include naive_bayes.html %}
 
 {% include support_vector_machines.html %}
+
+# Setup and Tools
+
+{% include setting_up_python3.html %}
+
+{% include setting_up_github.html %}
+
+{% include using_github.html %}
+
+{% include intro_to_jupyter.html %}
+
+{% include intro_to_pandas.html %}
 
 # Example Datasets
 
