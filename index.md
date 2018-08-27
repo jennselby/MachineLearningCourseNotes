@@ -42,3 +42,5 @@ layout: default
 
 * [Storm Data](https://www.ncdc.noaa.gov/stormevents/ftp.jsp){:target="_blank"} -- in particular, look at the [Storm Data Format Description](http://www1.ncdc.noaa.gov/pub/data/swdi/stormevents/csvfiles/Storm-Data-Export-Format.docx){:target="_blank"} 
 * [Student Performance Data](http://archive.ics.uci.edu/ml/datasets/student+performance){:target="_blank"}
+* [Titanic Dataset](http://web.stanford.edu/class/archive/cs/cs109/cs109.1166/stuff/titanic.csv)
+    * [Data Dictionary](http://choens.github.io/titanic/workshops/regression/data-dictionary/) - This describes what all the different variables of the Titanic dataset mean.
