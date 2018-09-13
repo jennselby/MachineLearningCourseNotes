@@ -16,11 +16,13 @@ layout: default
 
 {% include classification.html %}
 
-{% include logistic_regression.html %}
-
 {% include decision_trees.html %}
 
 {% include random_forest.html %}
+
+{% include classification_validation.html %}
+
+{% include logistic_regression.html %}
 
 {% include naive_bayes.html %}
 
