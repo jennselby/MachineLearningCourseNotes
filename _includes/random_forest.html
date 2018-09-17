@@ -21,10 +21,6 @@
 </li>
 </ol>
 </ol>
-<h3>Measuring the best split: Gini or Entropy</h3>
-<p>The python library scikit-learn provides two objective functions that you can use to find the best split: Gini (also known as Impurity) and Entropy (also known as Information Gain). Both are a measurement of how well a particular split separates the classes.</p>
-<p>The worst split for both Gini and Entropy are ones that split the two nodes such that classes are evenly divided between the two nodes (that is, both nodes contain 50% of Class A and 50% of Class B).</p>
-<p>How do you choose between Gini and Entropy? Great question. There's no hard and fast rule. The general consensus is that the choice of the particular splitting function doesn't really impact the split of the data.</p>
 <h3>Regression: Minimizing sum of squared errors</h3>
 <p>In the case that you use RF for regression, the construction of the forest is the same with the exception of how you choose the splits. In the case of regression, the nodes are split now based upon how well the split minimizes the sum of squared errors (real values - predictions) for each split.</p>
 <h3>Choosing <em>m</em></h3>
