@@ -20,11 +20,11 @@ layout: default
 
 {% include random_forest.html %}
 
-{% include classification_validation.html %}
-
 {% include logistic_regression.html %}
 
 {% include naive_bayes.html %}
+
+{% include classification_validation.html %}
 
 {% include support_vector_machines.html %}
 
