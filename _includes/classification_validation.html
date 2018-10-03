@@ -10,16 +10,16 @@
 <li>false negative: the model predicted this point wasn't in this class, but it actually was</li>
 </ul>
 <p><img src="assets/img/TP_FN_FP_TN.png" alt="Square of TP, FP, TN, and FN" /></p>
-<p><strong>Precision</strong> is looking to see how often our guesses about points being in this class were right: $\frac{TP}{TP + FP}</p>
-<p><strong>Recall</strong> (or <strong>True Positive Rate</strong> or <strong>Sensitivity</strong>) is looking to see how what fraction of points that were actually in this class were correctly identified: $\frac{TP}{TP + FN}$</p>
-<p><strong>F-measure </strong>combines precision and recall, using the harmonic mean: $2 * \frac{P * R}{P + R}$</p>
+<p><strong>Precision</strong> is looking to see how often our guesses about points being in this class were right: \(\frac{TP}{TP + FP}\)</p>
+<p><strong>Recall</strong> (or <strong>True Positive Rate</strong> or <strong>Sensitivity</strong>) is looking to see how what fraction of points that were actually in this class were correctly identified: \(\frac{TP}{TP + FN}\)</p>
+<p><strong>F-measure </strong>combines precision and recall, using the harmonic mean: \(2 * \frac{P * R}{P + R}\)</p>
 <p><a target="_blank" href="http://scikit-learn.org/stable/auto_examples/model_selection/plot_precision_recall.html" >More information</a></p>
 <h3>The ROC Curve and AUC</h3>
 <p>Another popular metric used in a lot of academic papers published on classification techniques is the Receiver Operating Characteristic curve (AKA ROC curve). </p>
 <p>This plots the False Positive Rate on the x-axis and the True Positive Rate on the y-axis.</p>
 <ul>
 <li>The True Positive Rate is the same as described above for Recall (they mean the same thing): \(\frac{TP}{TP + FN}\).</li>
-<li>The False Positive Rate is $\frac{FP}{FP + TN}$</li>
+<li>The False Positive Rate is \(\frac{FP}{FP + TN}\)</li>
 </ul>
 <p>The way the curve is created is by changing the values of the threshold probability at which you classify something as belong to the "positive class". If I am creating a model to give me the probability that it is going to rain today, I could be really cautious and carry an umbrella if the model says there is even a 10% chance of rain or I could live life on the edge and only bring my umbrella if the model was 99% sure it would rain. What threshold I pick may have a big impact on how often I am running through the rain or lugging around an unnecessary umbrella, depending on how confident and correct the model is.</p>
 <p><img src="https://www.medcalc.org/manual/_help/images/roc_intro3.png" alt="Example ROC curve" width="289" height="279" /></p>
@@ -34,7 +34,7 @@
 <h3>Perplexity</h3>
 <p>Perplexity is sometimes used in natural language processing problems rather than some of the other <a class="jump-to-section" href="#classification-validation">classification validation measures</a>. It uses the concept of entropy (<a target="_blank" href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">in the information theory sense</a>) to measure how many bits of information would be needed on average to encode an item from your test set. The fewer bits needed, the better, because it implies your model is less confused about how to represent this information. The perplexity of a model on your test set is</p>
 <p>$$ perplexity = 2^{\frac{-1}{n}\sum_{i=0}^n\log_{2}(p_i ) }$$ where \(n\) is the number of test points in your data and \(p_i\) is the probability your model output of the \(i^{th}\) point being in class 1.</p>
-<p>For instance, if you have a classification problem, for each test point, you would see what probability \(p_i\) your model gives for the correct class (and only the correct class) for that \(i^{th}\) point and take $log_{2}(p_i)$. Add all of these up, take the average, and raise 2 to that average.</p>
+<p>For instance, if you have a classification problem, for each test point, you would see what probability \(p_i\) your model gives for the correct class (and only the correct class) for that \(i^{th}\) point and take \(log_{2}(p_i)\). Add all of these up, take the average, and raise 2 to that average.</p>
 <p>See <a target="_blank" href="https://en.wikipedia.org/wiki/Perplexity">Wikipedia</a> and <a target="_blank" href="https://jamesmccaffrey.wordpress.com/2016/08/16/what-is-machine-learning-perplexity/">this blog post</a> for more information.</p>
 <h3>Other Classification Metrics</h3>
 <p>You can see a page Carl created for other measurements of binary classification metrics: <a target="_blank" href="http://carlshan.github.io/">http://carlshan.github.io/</a></p>
