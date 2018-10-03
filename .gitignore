@@ -4,3 +4,5 @@ _site/
 .jekyll-metadata
 .ipynb_checkpoints
 *Answers*.ipynb
+.DS_Store
+
