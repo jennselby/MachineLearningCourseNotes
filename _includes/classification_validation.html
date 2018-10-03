@@ -18,7 +18,7 @@
 <p>Another popular metric used in a lot of academic papers published on classification techniques is the Receiver Operating Characteristic curve (AKA ROC curve). </p>
 <p>This plots the False Positive Rate on the x-axis and the True Positive Rate on the y-axis.</p>
 <ul>
-<li>The True Positive Rate is the same as described above for Recall: $\frac{TP}{TP + FN}$.</li>
+<li>The True Positive Rate is the same as described above for Recall (they mean the same thing): \(\frac{TP}{TP + FN}\).</li>
 <li>The False Positive Rate is $\frac{FP}{FP + TN}$</li>
 </ul>
 <p>The way the curve is created is by changing the values of the threshold probability at which you classify something as belong to the "positive class". If I am creating a model to give me the probability that it is going to rain today, I could be really cautious and carry an umbrella if the model says there is even a 10% chance of rain or I could live life on the edge and only bring my umbrella if the model was 99% sure it would rain. What threshold I pick may have a big impact on how often I am running through the rain or lugging around an unnecessary umbrella, depending on how confident and correct the model is.</p>
