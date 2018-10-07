@@ -1,0 +1,36 @@
+<h2>Bias</h2>
+
+<p>Because in machine learning we are training models by example, we have to be careful about using examples that reflect the bias of our current world. The examples below are perhaps some of the most contentious or troublesome, but bias can also come in much more mundane forms (like finding <a target="_blank" href="http://aiweirdness.com/post/171451900302/do-neural-nets-dream-of-electric-sheep">sheep and giraffes where there are none</a>). You always want to think carefully about the training data you are giving your model so that your dataset is not teaching the model things you never intended.</p>
+
+
+<h3>Gender Bias</h3>
+
+<p>Google researchers trained a machine learning system with years worth of news stories, representing the words they contained as vectors (series of numbers that represent a coordinate in some high-dimensional space). In this form you could perform arithmetic on these word vectors. For example, you could subtract “Man” from the vector that describes “King” and add “Woman” and get back “Queen” as a result. Very cool!  However, <a target="_blank" href="https://www.technologyreview.com/s/602025/how-vector-space-mathematics-reveals-the-hidden-sexism-in-language/">if you tried to subtract “Man” from “Software Engineer” and add “Woman” you got “Homemaker”</a>. This may reflect some aspects of our current society, but we did not want to train our system to believe this!</p>
+
+<p>Another <a target="_blank" href="https://www.wired.com/story/machines-taught-by-photos-learn-a-sexist-view-of-women/">study showed that image-recognition models were learning sexist ideas through photos</a>, and seemed to actually be developing a stronger bias than was in the underlying data.</p>
+
+<p>The data that we use to train our algorithms are not inherently unbiased; as a result, the systematic inequities or skews that persist in our society may show up in our learned models.</p>
+
+
+<h3>Racial and Socioeconomic Bias</h3>
+
+<p>"Like all technologies before it, artificial intelligence will reflect the values of its creators. So inclusivity matters — from who designs it to who sits on the company boards and which ethical perspectives are included. Otherwise, we risk constructing machine intelligence that mirrors a narrow and privileged vision of society, with its old, familiar biases and stereotypes." -- <i>Microsoft researcher Kate Crawford</i> <a target="_blank" href="http://www.nytimes.com/2016/06/26/opinion/sunday/artificial-intelligences-white-guy-problem.html?_r=0">See full article</a></p>
+
+<p>One scrutinized machine learning system that may contain wide-reaching racial and socioeconomic bias is in that of predictive policing. Predictive policing refers to a class of software that claims to be able to use machine learning to predict crimes before they happen. A <a target="_blank" href="https://www.teamupturn.com/reports/2016/stuck-in-a-pattern">report that surveyed some of largest predictive policing software</a> noted a few ways that predictive policing can have negative unintended consequences. They wrote how there can be a ratchet effect with these issues: due to bias stemming from which crimes are reported and investigated, the distortion may get worse if unrecognized, because “law enforcement departments rely on the evidence of last year’s correctional traces—arrest or conviction rates—in order to set next year’s [enforcement] targets.”</p>
+
+<p>Propublica <a target="_blank" href="https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing">published an investigation into a similar risk assessment algorithms</a>, finding that they were racially biased. The <a target="_blank" href="https://www.documentcloud.org/documents/2998391-ProPublica-Commentary-Final-070616.html">response from the company that developed the algorithm</a> and <a target="_blank" href="https://www.propublica.org/article/propublica-responds-to-companys-critique-of-machine-bias-story">Propublica's response to their response</a> illustrate how different validation metrics can lead to different conclusions about whether there is or is not bias. Deciding how to be as fair as possible in a society that is currently unfair is not always straightforward.</p>
+
+<p>A <a target="_blank" href="https://www.bostonmagazine.com/news/2018/02/23/artificial-intelligence-race-dark-skin-bias/">study tested various facial classification systems</a> and found that they misgendered black people 20-30 times more often than white people.</p>
+
+<p><a target="_blank" href="http://www.nber.org/digest/sep03/w9873.html">If humans responding to resumes are racially or otherwise biased</a>, then training a model based to pick out resumes based on ones that were previously picked out will reflect that same problem. Another study of bias in resumes illustrates sensitivity to selection of training data. <a target="_blank" href="https://ipp.missouri.edu/wp-content/uploads/sites/2/2016/04/Policy-Brief-04B-2016.pdf">This study found no racial bias in resume responses</a>, which might indicate improvements in this area. However, the researchers write "unlike in the Bertrand and Mullainathan study, we do not use distinctly African American-sounding first names because researchers have indicated concern that these names could be interpreted by employers as being associated with relatively low socioeconomic status". Instead they used last names of "Washington" and "Jefferson" which are apparently much more common among black families than white ones. They did not appear to have tested whether or not the typical resume reader would actually associate those last names with a particular racial group.</p>
+
+<h3>Political Bias</h3>
+
+<p>If machines are tasked with finding things you like, you may end up only ever seeing things that conform to your prior biases. Worse, if models are training to optimize for articles getting shared, then it is mostly sensationalist news <em>that is more likely to be wrong</em> that will be promoted. See for instance <a target="_blank" href="https://www.theguardian.com/us-news/2016/nov/16/facebook-bias-bubble-us-election-conservative-liberal-news-feed">experiments with people seeing the other side of Facebook</a>. In this study, some were swayed, but many felt their beliefs were reinforced, perhaps because of the tenor of the types of things likely to be shown.</p>
+
+
+<h3>Strategies for Fixing Bias</h3>
+
+<p>There have been a number of papers that have proposed different strategies for combatting bias in machine learning models. This <a target="_blank" href="https://www.oreilly.com/ideas/we-need-to-build-machine-learning-tools-to-augment-machine-learning-engineers">article summarizes many of these suggestions, and also links to the underlying research</a>.</p>
+
+<p>There are also organizations working on the problems of bias in AI, such as Joy Buolamwini's <a target="_blank" href="https://www.ajlunited.org/">Algorithmic Justice League</a>.</p>

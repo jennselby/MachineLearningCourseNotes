@@ -28,6 +28,22 @@ layout: default
 
 {% include support_vector_machines.html %}
 
+{% include ethical_issues.html %}
+
+{% include ethical_issues_privacy.html %}
+
+{% include ethical_issues_bias.html %}
+
+{% include ethical_issues_abuse_and_misuse.html %}
+
+{% include ethical_issues_model_explainability.html %}
+
+{% include ethical_issues_responsibility.html %}
+
+{% include ethical_issues_automation_of_labor.html %}
+
+{% include ethical_issues_existential_risks.html %}
+
 # Setup and Tools
 
 {% include setting_up_python3.html %}
