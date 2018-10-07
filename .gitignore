@@ -5,4 +5,4 @@ _site/
 .ipynb_checkpoints
 *Answers*.ipynb
 .DS_Store
-
+assets/data
