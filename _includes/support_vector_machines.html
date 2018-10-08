@@ -11,7 +11,7 @@
 <p>The vectors describing the datapoints on the boundaries are called "support vectors", which give SVMs their name.</p>
 <h3>How do you optimize for finding the "best" hyperplane?</h3>
 <p>The equation describing a plane is \(w * x + b = 0\). The 'b' parameter moves the plane and w controls the "orientation" of the plane.</p>
-<p>The distance between parallel hyperplanes is \(\frac{absolute_value(b1 - b2)}{length(w)}\). (For those of you who have seen some linear algebra before: \(length(w)\) is the L2 norm of the vector w.)</p>
+<p>The distance between parallel hyperplanes is \(\frac{abs(b1 - b2)}{length(w)}\) where \(abs\) is the absolute value function. (For those of you who have seen some linear algebra before: \(length(w)\) is the L2 norm of the vector w.)</p>
 <p>If you want to maximize the "gap" between different classes, you want to minimize \(length(w)\). You can do so by using techniques from a branch of mathematics called quadratic programming. </p>
 <h3>The Kernel Method</h3>
 <p>So here's an important question: what if your data can't be separable by a flat hyperplane? One solution you can try is to <em>transform</em> your data so that your data becomes separable once transformed. You do so by applying a <strong>kernel
