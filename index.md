@@ -58,6 +58,8 @@ layout: default
 
 {% include data_proxy_values.html %}
 
+{% include parameters_and_hyperparameters.html %}
+
 # Setup and Tools
 
 {% include setting_up_python3.html %}
