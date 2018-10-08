@@ -10,7 +10,7 @@
 
 <p>After fitting a linear regression to your data, you may arrive at the following estimates for your model:</p>
 
-<p>Height = 42 + 2.3 * Bacteria + 11 * Sunlight</p>
+$$Height = 42 + 2.3 * Bacteria + 11 * Sunlight$$
 
 <p>However, you wonder whether bacteria operates on plants differently in full sunlight versus in partial sunlight. In other words, you wonder if there is some sort of interaction between the two features that is not being captured in your model. The effect of Bacteria may be different at different values of Sunlight, something that your model doesn't directly address.</p>
 
@@ -18,11 +18,11 @@
 
 <p>With this new feature, you fit your model and arrive at the following estimates:</p>
 
-<p>Height = 35 + 4.2 * Bacteria + 9 * Sun + 3.2 * Bacteria*Sunlight</p>
+$$Height = 35 + 4.2 * Bacteria + 9 * Sun + 3.2 * Bacteria*Sunlight$$
 
-<p>This interaction term changes your model estimates for the various variables. For plants in low sunlight, Sunlight = 0, so Height = 35 + 4.2 * Bacteria. The impact of Bacteria on height growth is estimated to be 4.2 (e.g,. Plants with 1000 more bacteria/ml would be expected to be 4.2 cm taller).</p>
+<p>This interaction term changes your model estimates for the various variables. For plants in low sunlight, \(Sunlight = 0\), so \(Height = 35 + 4.2 * Bacteria\). The impact of Bacteria on height growth is estimated to be 4.2 (e.g,. Plants with 1000 more bacteria/ml would be expected to be 4.2 cm taller).</p>
 
-<p>However, for plants that have full sunlight (Sunlight = 1), the effect of Bacteria is 4.2 + 3.2*1 = 7.4. So a plant in full sun with 1000 more bacterial/ml than another plant in full sun would be expected to be 7.4 cm taller than a plant with less bacteria.</p>
+<p>However, for plants that have full sunlight where \(Sunlight = 1\), the effect of Bacteria is \(4.2 + 3.2*1 = 7.4\). So a plant in full sun with 1000 more bacterial/ml than another plant in full sun would be expected to be 7.4 cm taller than a plant with less bacteria.</p>
 
 <p>In other words, Bacteria may be more helpful towards contributing to a plant's growth in full sunlight than without sunlight.</p>
 
