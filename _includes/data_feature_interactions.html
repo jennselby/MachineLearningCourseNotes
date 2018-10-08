@@ -1,0 +1,31 @@
+<h2>Feature Interactions</h2>
+
+<p>So far we've been talking about transforming our features in various ways that can help our algorithm in being more predictive or computationally efficient.</p>
+
+<p>A highly related topic is that of creating new features as combinations of existing ones. This is called creating 'interaction terms'.</p>
+
+<p>You may want to create interaction terms if you believe that there is some relationship between your features that is not captured individually in the model predictions, because have a more complex interaction.</p>
+
+<p>For example, taking the example from <a target="_blank" href="http://www.theanalysisfactor.com/interpreting-interactions-in-regression/">this blog article</a>, suppose you were trying to build a regression model that predicted the height of a plant based off of the amount of bacteria and sunlight the plant got.</p>
+
+<p>After fitting a linear regression to your data, you may arrive at the following estimates for your model:</p>
+
+<p>Height = 42 + 2.3 * Bacteria + 11 * Sunlight</p>
+
+<p>However, you wonder whether bacteria operates on plants differently in full sunlight versus in partial sunlight. In other words, you wonder if there is some sort of interaction between the two features that is not being captured in your model. The effect of Bacteria may be different at different values of Sunlight, something that your model doesn't directly address.</p>
+
+<p>As a result, you create a new feature called 'Bacteria * Sunlight' in which you multiply the values of Bacteria and Sunlight together.</p>
+
+<p>With this new feature, you fit your model and arrive at the following estimates:</p>
+
+<p>Height = 35 + 4.2 * Bacteria + 9 * Sun + 3.2 * Bacteria*Sunlight</p>
+
+<p>This interaction term changes your model estimates for the various variables. For plants in low sunlight, Sunlight = 0, so Height = 35 + 4.2 * Bacteria. The impact of Bacteria on height growth is estimated to be 4.2 (e.g,. Plants with 1000 more bacteria/ml would be expected to be 4.2 cm taller).</p>
+
+<p>However, for plants that have full sunlight (Sunlight = 1), the effect of Bacteria is 4.2 + 3.2*1 = 7.4. So a plant in full sun with 1000 more bacterial/ml than another plant in full sun would be expected to be 7.4 cm taller than a plant with less bacteria.</p>
+
+<p>In other words, Bacteria may be more helpful towards contributing to a plant's growth in full sunlight than without sunlight.</p>
+
+<p>There may be other ways you choose to create interaction variables. </p>
+
+<p>To get a sense as to whether the interaction features you've been creating are in fact helpful or accurate, you can use the <a href="#validation">validation</a> techniques we have learned, to see if the additional features improve any of the metrics.</p>

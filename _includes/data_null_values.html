@@ -1,0 +1,20 @@
+<h2>Null Values</h2>
+
+<p>A very common scenario you will run into with real-world data is that it's incomplete. Your dataset may be rife with rows that are have missing values for one or more columns.</p>
+
+<p>This is especially true in fields in which the data was recorded by hand. There may be typos that went undetected or information that was unrecorded.</p>
+
+<p>How do you deal with a situation in which your data has Null values?</p>
+
+<ul>
+	<li><strong>Dropping the rows: </strong>This is a straightforward approach. You may simply want to eliminate the rows with null values from your dataset so that your model can take in the data. However, this is unwise if the rows that have Null values may in fact have some systematic pattern (e.g., many of the survey respondents in one neighborhood got a misprinted form and thus we don't have their age) such that removing them will bias the data.</li>
+	<li><strong>Dropping the columns:</strong> If a column contains a large number of missing values, it might be best to just drop that feature from the dataset.</li>
+	<li><strong><strong>Imputing values: </strong></strong>You may want to replace the Null values with "best guesses". This is known as imputation. Examples of imputation strategies:
+		<ol>
+			<li>Mean/Median imputation: for numerical data, you may simply replace the Nulls with the mean or median of the column. This is equivalent to saying "Well if I don't know this row's particular value, I'll just guess that it's the average/median of the data I do have."</li>
+			<li>Empirical Imputation: you replace the Null value with a random draw from the rest of the data.</li>
+			<li>Predictive Imputation: You build a regression/classification model for that variable (e.g., age) and fill in your data with those predictions.</li>
+		</ol>
+	</li>
+	<li><strong>Using techniques that don't raise errors with Null values:</strong> Models based on Decision Trees (e.g., Random Forest, Boosted Trees) treat null values as simply another value. That is, the value of 'None' for a row may in fact be highly predictive of the class of the row. This may be true if there were systematic biases in which rows tended to have null values, and tree-based methods may pick up on this signal and build a robust model regardless of your null values.</li>
+</ul>

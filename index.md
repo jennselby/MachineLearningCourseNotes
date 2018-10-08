@@ -44,6 +44,20 @@ layout: default
 
 {% include ethical_issues_existential_risks.html %}
 
+{% include data_processing.html %}
+
+{% include data_interval_ordinal_or_categorical.html %}
+
+{% include data_text.html %}
+
+{% include data_null_values.html %}
+
+{% include data_transforming_numerical_values.html %}
+
+{% include data_feature_interactions.html %}
+
+{% include data_proxy_values.html %}
+
 # Setup and Tools
 
 {% include setting_up_python3.html %}

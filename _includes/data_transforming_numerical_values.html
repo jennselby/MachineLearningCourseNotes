@@ -1,0 +1,20 @@
+<h2>Transforming Numerical Values</h2>
+
+<p>For various reasons, including efficiency of algorithmic performance and standardization of units, we may want to transform our numerical data in some way. Below are some ways we may want to transform data:</p>
+
+<ul>
+	<li><strong>0-1 normalization:</strong> we may want our data to fall within the range of 0 to 1. In this case, we can get this for a particular column of data by subtracting from each individual value the <i>minimum</i> of that column and dividing by the <i>range</i> of the column. <i>range</i> in this case is equal to <i>maximum &ndash; minimum</i>. </li>
+	<li><strong>standardization</strong>: we can also standardize our data so that it has a mean of 0 and a standard deviation of 1. To achieve this, we subtract from each value the <i>mean</i> of the column and divide by the <i>standard deviation</i> of the column.</li>
+</ul>
+
+<p>These transformations methods may help in decreasing your algorithms' computational time, since there may be fewer iterations necessary in order for the model's fitting algorithm to optimize for the lowest cost function. In addition, it may make it easier to compare fitted coefficients, since all data will have the same scale. However, note that the above methods don't adequately deal with the situation of having outliers in your data.</p>
+
+<p> Other types of data transformations we may want to do include:</p>
+
+<ul>
+	<li><strong>Log:</strong> we may want to take the log of a particular column if we believe this transformation may help us fit to a better model. E.g., perhaps our linear model of y = mx + b is not accurate, but by transforming x into log(x), we can now fit a line.</li>
+	<li><strong>Other functions:</strong> Just like log, it might make sense to use other functions that might describe the relationship between a particular input and the output. If we have knowledge or guesses about what the relationship might be, we should make sure our model is able to learn that possibility.</li>
+	<li><strong>Bucketing: </strong>We may want to break our data up into chunks like &lt; 35 inches and &gt; 35 inches. Or we may want to create 10 bins of values (like Bottom 10% to top 10%) and sort our data that way.</li>
+	<li><strong>Ranking: </strong>we may want the data in a "ranked" form in which we don't care about the exact values, but rather where they fall in terms of how they rank compared to others. E.g., we may want to convert the vector &lt;10.2, 5.1, 4.78, 9.6, 2.21&gt; into &lt;1, 3, 4, 2, 5&gt;</li>
+	<li><strong>Change in value:</strong> Rather than looking at absolute values, we might want to have our model consider movement in our data, particularly with time series. For instance, with stock prices, the absolute change in price from one time step to the next might not be nearly as useful as the percentage change from the previous time.</li>
+</ul>
