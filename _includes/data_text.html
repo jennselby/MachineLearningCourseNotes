@@ -16,26 +16,26 @@
 <p>For example, below is the number of appearances of each unique word for the lyrics:</p>
 
 <table border="2">
-<tbody>
-	<tr>
-		<td>never</td>
-		<td>gonna</td>
-		<td>give</td>
-		<td>you</td>
-		<td>up</td>
-		<td>let</td>
-		<td>down</td>
-	</tr>
-	<tr>
-		<td>2</td>
-		<td>2</td>
-		<td>1</td>
-		<td>2</td>
-		<td>1</td>
-		<td>1</td>
-		<td>1</td>
-	</tr>
-</tbody>
+	<tbody>
+		<tr>
+			<td>never</td>
+			<td>gonna</td>
+			<td>give</td>
+			<td>you</td>
+			<td>up</td>
+			<td>let</td>
+			<td>down</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>2</td>
+			<td>1</td>
+			<td>2</td>
+			<td>1</td>
+			<td>1</td>
+			<td>1</td>
+		</tr>
+	</tbody>
 </table>
 
 <p>We can do this for each sentence, and end up getting a vector of numbers where each number corresponds to the total number of appearances of a particular word.</p>
@@ -45,44 +45,44 @@
 <p>Representing the above lyrics in a row, we might get a 1000-element vector that looks like the following:</p>
 
 <table border="2">
-<tbody>
-	<tr>
-		<td>the</td>
-		<td>...</td>
-		<td>never</td>
-		<td>gonna</td>
-		<td>give</td>
-		<td>you</td>
-		<td>up</td>
-		<td>let</td>
-		<td>down</td>
-		<td>...</td>
-		<td>what</td>
-		<td>is</td>
-		<td>love</td>
-		<td>baby</td>
-		<td>don't</td>
-		<td>hurt</td>
-	</tr>
-	<tr>
-		<td>0</td>
-		<td>...</td>
-		<td>2</td>
-		<td>2</td>
-		<td>1</td>
-		<td>2</td>
-		<td>1</td>
-		<td>1</td>
-		<td>1</td>
-		<td>...</td>
-		<td>0</td>
-		<td>0</td>
-		<td>0</td>
-		<td>0</td>
-		<td>0</td>
-		<td>0</td>
-	</tr>
-</tbody>
+	<tbody>
+		<tr>
+			<td>the</td>
+			<td>...</td>
+			<td>never</td>
+			<td>gonna</td>
+			<td>give</td>
+			<td>you</td>
+			<td>up</td>
+			<td>let</td>
+			<td>down</td>
+			<td>...</td>
+			<td>what</td>
+			<td>is</td>
+			<td>love</td>
+			<td>baby</td>
+			<td>don't</td>
+			<td>hurt</td>
+		</tr>
+		<tr>
+			<td>0</td>
+			<td>...</td>
+			<td>2</td>
+			<td>2</td>
+			<td>1</td>
+			<td>2</td>
+			<td>1</td>
+			<td>1</td>
+			<td>1</td>
+			<td>...</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+		</tr>
+	</tbody>
 </table>
 
 <p>Note that nearly all elements of this vector are 0, since each lyric will likely only contain a small number of our total 1000-word vocabulary.</p>
@@ -90,27 +90,31 @@
 
 <h3>2. TF-IDF</h3>
 
-<p>Counting the number of times words appear is a pretty good place to start. But what if we're now trying to classify much longer pieces of text? For example, a famous historical question that may be resolved with statistical techniques is: "Of the 85 famous Federalist Papers that were anonymously published by Alexander Hamilton, John Jay and James Madison, who was the primary author of each paper?"</p>
+<p>Counting the number of times words appear is a pretty good place to start. But what if we're now trying to classify much longer pieces of text? For example, a famous historical question that may be resolved with statistical techniques is: "Of the
+	85 famous Federalist Papers that were anonymously published by Alexander Hamilton, John Jay and James Madison, who was the primary author of each paper?"</p>
 
 <p>This is a multiclass classification problem in which the data we receive are much longer than just simple lyrics.</p>
 
 <p>The Scikit-Learn documentation points out the issue (<a target="_blank" href="http://scikit-learn.org/stable/tutorial/text_analytics/working_with_text_data.html">link</a>):</p>
 
 <div class="indented">
-    <p>"...longer documents will have higher average count values than shorter documents, even though they might talk about the same topics.</p>
-    <p>To avoid these potential discrepancies it suffices to divide the number of occurrences of each word in a document by the total number of words in the document: these new features are called tf for Term Frequencies.</p>
-    <p>Another refinement on top of tf is to downscale weights for words that occur in many documents in the corpus and are therefore less informative than those that occur only in a smaller portion of the corpus.</p>
-    <p>This downscaling is called <a target="_blank" href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">tf&ndash;idf</a> for 'Term Frequency times Inverse Document Frequency'."</p>
+	<p>"...longer documents will have higher average count values than shorter documents, even though they might talk about the same topics.</p>
+	<p>To avoid these potential discrepancies it suffices to divide the number of occurrences of each word in a document by the total number of words in the document: these new features are called tf for Term Frequencies.</p>
+	<p>Another refinement on top of tf is to downscale weights for words that occur in many documents in the corpus and are therefore less informative than those that occur only in a smaller portion of the corpus.</p>
+	<p>This downscaling is called <a target="_blank" href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">tf&ndash;idf</a> for 'Term Frequency times Inverse Document Frequency'."</p>
 </div>
 
 <h4>Term Frequency</h4>
-<p>There is not a consensus on what is meant by term frequency. As described above, scikit learn defines it as 
-\[\frac{number of occurences of term in document}{number of words in document}\]
-But tf can also be what we saw before when looking at <a href="#naive-bayes">Naive Bayes</a>: the raw number of times a unique word was seen in a document. For more ways of describing term frequency, see <a target="_blank" href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf#Term_frequency_2">Wikipedia's page on Term Frequency</a>.</p>
+<p>There is not a consensus on what is meant by term frequency. As described above, scikit learn defines it as
+	\(\frac{numOccurances}{totalWords}\)
+	where \(numOccurances\) is the number of times a word appears in a document and \(totalWords\) is the total number of words in the document.
+	
+	But \(termFrequenc\) can also be what we saw before when looking at <a href="#naive-bayes">Naive Bayes</a>: the raw number of times a unique word was seen in a document. For more ways of describing term frequency, see <a target="_blank" href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf#Term_frequency_2">Wikipedia's
+		page on Term Frequency</a>.</p>
 
 <h4>Inverse Document Frequency</h4>
 <p>IDF is oftentimes calculated to be
-\[ log \frac{N}{total(W) \]
-where $N$ is the total number of documents and $total(W)$ is the number of documents that contain that word.</p>
+	\(log \frac{N}{total(W)} \)
+	where \(N\) is the total number of documents and \(total(W)\) is the number of documents that contain that word.</p>
 
 <p>For an example of tf-idf in action, see <a target="_blank" href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf#Example_of_tf.E2.80.93idf">this Wikipedia example</a>.</p>
