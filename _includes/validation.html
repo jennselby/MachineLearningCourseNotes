@@ -22,3 +22,12 @@ The first technique is not an option for actual data analyses, where we are usin
 <p>One answer is <strong>holdout</strong>, in which you randomly divide your data into training data and testing data. How big should each part be? Unfortunately, <a target="_blank" href="http://fastml.com/how-much-data-is-enough/">this is not an easy question to answer</a>. It depends on the data you have, the model you're using, your cost function, how you're optimizing, and so on. In general, the more complex your model is, the more data you need -- in both training and testing. However, <a class="jump-to-section" href="#regularization-ridge-lasso-and-elastic-net">regularization</a> can help a model perform better even with a small training set.</p>
 <p>If you do not have enough data to make good sized training and test sets, you can try using <strong>cross validation</strong>. In this case, you split your data into several equal parts, enough parts that if you left just one of them out, you'd have enough data left over to train your model. Now, for each part, train the model on all of the data not in that part and test the model on that part. This can give you a big enough "test set" overall that you can make a decisions about which model to use (and then perhaps train it on your entire set).</p>
 <p><a target="_blank" href="http://research.cs.tamu.edu/prism/lectures/iss/iss_l13.pdf">See this lecture for more information about creating test sets for validation</a>.</p>
+
+<h3>Validation Measures</h3>
+
+<p>Once you have created a test set, you'll want some way to score how your model did. What measurement to use depends on what type of problem you're working on.</p>
+
+<ul>
+    <li><a href="#regression-validation">Regression</a></li>
+    <li><a href="#classification-validation">Classification</a></li>
+</ul>
