@@ -1,0 +1,39 @@
+<h2>K-Means Clustering</h2>
+
+<p>One popular clustering technique is called K-Means (or median).</p>
+
+<p>K-Means has two <strong>hyperparameters</strong></p>
+
+<ul>
+	<li>the number of clusters to find (called K)</li>
+	<li>the threshold of centroid movement that tells us to stop iterating</li>
+</ul>
+<p><strong>K-Means (or median)</strong> is a 2-step iterative algorithm:</p>
+<ul>
+	<li>Randomly pick a centroid location for each of the K clusters. Oftentimes, they are initialized to just K random datapoints. However, by weighting the random selection a bit using a technique called <a target="_blank" href="https://en.wikipedia.org/wiki/K-means%2B%2B">K-means++</a> (an option built into sci-kit learn), you can get much better performance.</li>
+	<li>Repeat the following until the centroids are moving less than the threshold distance:
+		<ul>
+			<li>cluster assignment - assign each datapoint to the cluster&nbsp;whose centroid is closest.</li>
+			<li>move the centroids - move centroids to the mean (or, if you want, median)&nbsp;of their clusters.</li>
+		</ul>
+	</li>
+</ul>
+
+<p>Note: you often want to run this multiple times since the initial random initialization may bring you to a local optima.</p>
+
+<p><a target="_blank" href="https://www.naftaliharris.com/blog/visualizing-k-means-clustering/">See K-Means clustering cluster a dataset</a></p>
+
+<h3>Choosing the Hyperparameter</h3>
+
+<p>Thinking of this in terms of an optimization or cost function: you're trying to minimize the average distance between points and the "centroids" of their assigned cluster, over all datapoints.</p>
+
+<p>So how do you choose the number of clusters, AKA the hyperparameter K? There isn't an obvious answer. Oftentimes, there's actually just a lot of ambiguity in how we think about the data (e.g., are there only 3 types of customers? Or 4? Which is more "right"?)</p>
+
+<p>Some proposed ways of thinking about choosing K:</p>
+
+<ul>
+	<li>Use the elbow method: choose the number of K that is at the "elbow method"
+		<img src="http://i.stack.imgur.com/BzwBY.png" alt="graph of elbow method" width="75%"/>
+	</li>
+	<li>Often clustering methods are used for some downstream purpose e.g., market segmentation. You can see how different choices of clusters serve this later purpose by measuring some set of metrics (e.g., do I increase my sales after targeting my marketing to my hypothesized clusters?).</li>
+</ul>

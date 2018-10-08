@@ -1,0 +1,39 @@
+<h2>Unsupervised Learning</h2>
+
+<h3>Motivation for Unsupervised Learning</h3>
+
+<p>We've been learning about all sorts of machine learning techniques.</p>
+
+<p>All of the classification techniques we've examined in detail so far are "<strong>supervised</strong>" ones.</p>
+
+<p><strong>Supervised</strong> means the algorithm knew the "right" answer and could build a model that "best fit" the "right answer."</p>
+
+<p>The name supervised may make you think of some authority figure watching over, or supervising, some child. Essentially that's what it is. Supervised learning refers to the ways in which we help "supervise" or "guide" the algorithm to the "correct" answer because we feed it data that we already know the <strong>ground truth</strong> for. In this context, <strong>ground truth</strong>, refers to knowing the true outcomes or states of your datapoints. The outcomes are often called <strong>labels</strong></p>
+
+<p>For example, to build a logistic regression that predicts if someone is a vampire, you need to have data about current vampires and non-vampires. Your model could be built on top of this dataset. But what if someone gave you a dataset that didn't include whether someone was a vampire or not? You'd still have information about this person (e.g., age, weight, height) but you would no longer know if they were a vampire. You couldn't build a logistic regression model anymore, since the model can't be optimized to "fit" the data about vampires. Without a safe and secure machine learning model to tell vampires apart from non-vampires, you'd have to carry holy water and garlic with you everywhere you'd go!</p>
+
+<p>In reality, there is often little "labeled" data, or it may be very hard to collect. You don't always know who has a new rare disease, and it's really hard to find that information. Other times, you have a limited amount of labeled data but want to make predictions on a large set of unlabeled data. Or you may want to create labels after you have already clustered your data into groups, which may help you run supervised algorithms.</p>
+
+<p>Well, if you'd like to still figure out ways to tackle problems where you don't have <strong>ground truth</strong>, you've entered the (twilight) zone of <strong>unsupervised learning.</strong> Dun, dun dun!</p>
+
+<h3>Unsupervised Learning Techniques</h3>
+
+<p>Just because we are blind to the true structure of our data doesn't mean that the structure doesn't exist. We just need to find ways of discovering the structure. And that is what the class of techniques known as "unsupervised learning" does.</p>
+
+<p>In contrast to supervised learning, we give our algorithms data without the "targets" of what they actually are. We run algorithms that try to find patterns or structure in our data. One of the most common types of unsupervised learning is clustering, in which an algorithm attempts to find clumps of data points that are nearer to each other than to other data points not in the cluster.</p>
+
+<p><img src="http://natekohl.net/media/k-means.png" alt="Raw data on left; That same data, now clustered, on the right." width="600" height="300" /></p>
+
+<p>Some examples of when you want to use unsupervised clustering techniques:</p>
+
+<ul>
+	<li><em>finding clusters of customers:</em> you are the manager of a large store with millions of customers and you're wondering if there are "clusters" of customers (e.g., parent-shoppers, newlyweds, pet owners) that your store serves. You don't know what these clusters are but you suspect they might exist.</li>
+	<li><em>finding social communities:</em> you have a bunch of data about who is connected to who on a social network. You create "clusters" of folks by looking at how many connections they have to others.</li>
+	<li><em>finding gene expression patterns:</em> you have <a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/17682345">gene expression assays</a> and health metrics of a number of patients. We want to see what patterns we can find that might relate certain genes to any of the other things we measured, as a way to focus our next experiments.</li>
+	<li><em>reducing the number of colors required to display an image:</em> <a target="_blank" href="http://scikit-learn.org/stable/auto_examples/cluster/plot_color_quantization.html">see this example</a></li>
+</ul>
+<p>We'll be looking at two clustering algorithms:</p>
+<ul>
+	<li><a class="jump-to-section" href="#k-means-clustering">K-Means Clustering</a> because it is widely recognized and used</li>
+	<li><a class="jump-to-section" href="#dbscan-clustering">DBSCAN Clustering</a> because it has a number of features that make it nicer to use than K-means</li>
+</ul>

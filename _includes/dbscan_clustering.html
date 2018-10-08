@@ -1,0 +1,39 @@
+<h2>DBSCAN Clustering</h2>
+
+<p>In DBSCAN, you do not have to decide ahead of time how many clusters you want to find; the algorithm decides that based on the data (did we mention this was nicer to use than K-means?).</p>
+
+<p>You do still have some <strong>hyperparameters</strong> to choose, however</p>
+
+<ul>
+	<li>the maximum distance at which two points can still be considered neighbors</li>
+	<li>the minimum number of neighbor points needed to be considered a core point</li>
+</ul>
+
+<p>DBSCAN works like this</p>
+
+<ul>
+	<li>For each point that does not yet have a label
+		<ul>
+			<li>count how many neighbors it has (points that are within the maximum distance from it)</li>
+			<li>if there are fewer than the mininum number of neighbors, label it as noise and move on to the next point</li>
+			<li>otherwise, give this core point a new cluster label</li>
+			<li>for each of this point's neighbor points
+				<ul>
+					<li>if the neighbor already has a label other than noise, move on to the next neighbor</li>
+					<li>otherwise, give the neighbor the same new cluster label</li>
+					<li>if the neighbor has more than the minimum number of neighbors, add all of them to the list of neighbors for this cluster, so that they go through this same loop</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+
+<p>At the end of the algorithm, all points will be labeled one of the following:</p>
+
+<ul>
+	<li><strong>core points:</strong> points that are within the maximum distance of the minimum number of points in their cluster</li>
+	<li><strong>edge points:</strong> points that are within the maximum distance of some core point of their cluster</li>
+	<li><strong>noise:</strong> points that are not a member of any cluster</li>
+</ul>
+
+<p><a target="_blank" href="https://www.naftaliharris.com/blog/visualizing-dbscan-clustering/">See DBCAN cluster a dataset</a></p>

@@ -1,0 +1,16 @@
+<h2>Clustering Validation</h2>
+
+<p>How do you know if you've done a good job on actually making your clusters? It is always a good idea to validate your model, <a class="jump-to-section" href="#validation">as we have discussed</a>.</p>
+
+<p>If you are using a clustering technique for a classification problem -- that is, if you do have class labels that each data point should have been assigned -- there are some metrics that can help compare the clustering output to your labels:</p>
+
+<ul>
+    <li>the <strong>Adjusted Rand Index</strong> looks at how similar the clusters are to ground truth, taking into account the fact that the clusters will not necessarily be in the same order as the expected classes. See <a target="_blank" href="http://faculty.washington.edu/kayee/pca/supp.pdf">here for information on the mathematical details</a> and <a target="_blank" href="http://scikit-learn.org/stable/modules/clustering.html#adjusted-rand-index">here for scikit learn documentation</a>.</li>
+    <li>the <strong>Fowlkes-Mallows Score </strong>is a calculation involving the true positives, false positives, false negatives, and true negatives. In all cases, these are pairs of points, and you're looking to see if the pair is in the same cluster in the ground truth and in the clusters the model found. See <a target="_blank" href="https://en.wikipedia.org/wiki/Fowlkes%E2%80%93Mallows_index">wikipedia</a> and <a target="_blank" href="http://scikit-learn.org/stable/modules/clustering.html#fowlkes-mallows-scores">scikit-learn</a> for more information.</li>
+</ul>
+
+<p>If it truly is an unsupervised problem, measuring quality is much harder. However there are still a few ways you can measure the quality of your clusters.</p>
+
+<p>One is to calculate the <strong>silhouette coefficient</strong> (<a target="_blank" href="https://en.wikipedia.org/wiki/Silhouette_(clustering)">Wikipedia</a>): the silhouette coefficient ranges from -1 to 1, with a higher score meaning a "better" clustering. It measures the ratio between how "similar" a point is to its own cluster versus how "similar" it is to the closest neighboring cluster it's not a part of. Then you can calculate the average similarity, usually defined to be the distance from one point to another.</p>
+
+<p><a target="_blank" href="http://www.cs.ucsb.edu/~veronika/MAE/wagner07comparingclusterings.pdf">This paper explains a number of different metrics, including some of the ones above.</a></p>

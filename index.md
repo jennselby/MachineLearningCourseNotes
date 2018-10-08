@@ -60,6 +60,14 @@ layout: default
 
 {% include parameters_and_hyperparameters.html %}
 
+{% include unsupervised_learning.html %}
+
+{% include k_means_clustering.html %}
+
+{% include dbscan_clustering.html %}
+
+{% include clustering_validation.html %}
+
 # Setup and Tools
 
 {% include setting_up_python3.html %}
