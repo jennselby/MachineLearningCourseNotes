@@ -8,9 +8,9 @@
 <p>Source:<strong> </strong><a target="_blank" href="http://www.med.nyu.edu/chibi/sites/default/files/chibi/Final.pdf">http://www.med.nyu.edu/chibi/sites/default/files/chibi/Final.pdf</a> </p>
 <p>The vectors describing the datapoints on the boundaries are called "support vectors", which give SVMs their name.</p>
 <h3>How do you optimize for finding the "best" hyperplane?</h3>
-<p>The equation describing a plane is w * x + b = 0. The 'b' parameter moves the plane and w controls the "orientation" of the plane.</p>
-<p>The distance between parallel hyperplanes is absolute_value(b1 - b2) / length(w). (For those of you who have seen some linear algebra before: length(w) is the L2 norm of the vector w.)</p>
-<p>If you want to maximize the "gap" between different classes, you want to minimize length(w). You can do so by using techniques from a branch of mathematics called quadratic programming. </p>
+<p>The equation describing a plane is \(w * x + b = 0\). The 'b' parameter moves the plane and w controls the "orientation" of the plane.</p>
+<p>The distance between parallel hyperplanes is \(\frac{absolute_value(b1 - b2)}{length(w)}\). (For those of you who have seen some linear algebra before: \(length(w)\) is the L2 norm of the vector w.)</p>
+<p>If you want to maximize the "gap" between different classes, you want to minimize \(length(w)\). You can do so by using techniques from a branch of mathematics called quadratic programming. </p>
 <h3>The Kernel Method</h3>
 <p>So here's an important question: what if your data can't be separable by a flat hyperplane? One solution you can try is to <em>transform</em> your data so that your data becomes separable once transformed. You do so by applying a <strong>kernel function</strong> (<a target="_blank" href="https://en.wikipedia.org/wiki/Kernel_(statistics)">read more on Wikipedia</a>) to your input data, transforming them so that the data is now linearly separable.</p>
 <p><img src="http://i.imgur.com/IsB9ojN.png" alt="" width="670"></p>
