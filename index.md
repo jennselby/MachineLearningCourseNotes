@@ -68,6 +68,8 @@ layout: default
 
 {% include clustering_validation.html %}
 
+{% include neural_networks_intro.html %}
+
 # Setup and Tools
 
 {% include setting_up_python3.html %}

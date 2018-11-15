@@ -1,0 +1,14 @@
+<h2>Neural Networks</h2>
+<p>A neural network consists of layers of interconnected nodes (or neurons).</p>
+<p><img src="http://neuralnetworksanddeeplearning.com/images/tikz41.png" alt="multilayer neural network" width="560"></p>
+<p>(Image from <a target="_blank" href="http://neuralnetworksanddeeplearning.com/chap6.html">http://neuralnetworksanddeeplearning.com/chap6.html</a>)</p>
+<p>Each node in the input layer gets the value of one feature of a datapoint. In the image above, we have eight features in our dataset. For instance, a tree dataset might have height, circumference, age, number of branches, quality of soil, days of sunlight per year, distance to nearest tree of same or greater height, and density of leaves.</p>
+<p>The inputs are then propagated through the network. Each line in the image above represents a weighted connection. That is, if the weight of the connection between the top input node and the top node in the first hidden layer is 0.5, then the value of that first input (e.g. height) is multiplied by 0.5 to get its contribution to that node. All of the weighted inputs to a node are summed up and put through an activation function to get the output value of that node.</p>
+<p><img src="http://3.bp.blogspot.com/-7RWgohC4pYE/VhtQ8IELsLI/AAAAAAAAA6I/_XFhMbjpcCY/s1600/Simple%2BNeural%2BNetwork.png" alt="single node with weights and output" width="417" height="242"></p>
+<p>(image from <a target="_blank" href="http://2centsapiece.blogspot.com/2015/10/identifying-subatomic-particles-with.html">http://2centsapiece.blogspot.com/2015/10/identifying-subatomic-particles-with.html</a>)</p>
+<p>
+    The image above shows the view from a single node that has three inputs. X1, X2, and X3 might be coming from the dataset or they might be the outputs of nodes from a previous level. In either case, the output Y of this node is
+    \[Y = f(w_1*x_1 + w_2*x_2 + w_3*x_3)\]
+</p>
+<p>Where \(f\) is the activation function. What activation functions you choose for your neurons depends on the type of problem you are trying to solve, and different nodes in the network can have different activation functions. The activation function is typically nonlinear, which is part of what allows neural networks to solve problems that other models struggle with.</p>
+<p>Once the inputs have propagated all the way through to the output nodes, we have our answers. In the network in the image at the top of this section, there are four output nodes. Using the example of a tree dataset again, perhaps we are trying to predict future tree growth: the height, weight, number of branches, and number of leaves we expect the tree to have 12 months in the future.</p>
