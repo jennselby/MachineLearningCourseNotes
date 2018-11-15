@@ -72,6 +72,8 @@ layout: default
 
 {% include neural_networks_problem_domains.html %}
 
+{% include neural_networks_training.html %}
+
 # Setup and Tools
 
 {% include setting_up_python3.html %}
