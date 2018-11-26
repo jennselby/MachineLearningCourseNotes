@@ -1,7 +1,7 @@
 <h2>Regression Validation</h2>
 <h3>\(R^2\)</h3>
 <p class="indented">
-    $$ \frac{1 - sum( (y_{pred} - y_{truth})^2)}{sum( (averageY - y_{truth})^2 )} $$
+    $$ 1 - \frac{sum( (y_{pred} - y_{truth})^2)}{sum( (averageY - y_{truth})^2 )} $$
 </p>
 <p>That is, the numerator is our usual sum of squared errors, and the denominator is the sum of squares of the difference between each point and the average y value. (<a target="_blank" href="https://www.graphpad.com/guides/prism/6/curve-fitting/index.htm?r2_ameasureofgoodness_of_fitoflinearregression.htm">See
     here for more information</a>.) An \(R^2\) of 1 means the model perfectly predicts the output. \(R^2\) of 0 means the model is not any more predictive than just guessing the average output every time. A negative \(R^2\) means
