@@ -88,6 +88,8 @@ layout: default
 
 {% include intro_to_pandas.html %}
 
+{% include setting_up_tensorflow_keras.html %}
+
 # Example Datasets
 
 * [Storm Data](https://www.ncdc.noaa.gov/stormevents/ftp.jsp){:target="_blank"} -- in particular, look at the [Storm Data Format Description](http://www1.ncdc.noaa.gov/pub/data/swdi/stormevents/csvfiles/Storm-Data-Export-Format.docx){:target="_blank"} 

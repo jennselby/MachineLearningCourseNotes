@@ -1,0 +1,40 @@
+<h2>Setting up Tensorflow and Keras</h2>
+
+<p>
+  Unfortunately, Tensorflow does not currently support the latest version of Python (3.7), so for now you will
+  need to get an earlier Python version and install your libraries there.
+</p>
+
+<ol>
+  <li>
+    Download
+    <a href="https://www.python.org/ftp/python/3.6.7/python-3.6.7-macosx10.9.pkg">Python 3.6 for 64-bit OSX </a>
+    and run this installer.
+  </li>
+  <li>
+    There should now be a folder called "Python 3.6" in your Applications folder. Go to that folder in Finder
+    and double click "Install Certificates.command" to install the SSL certificates that will allow you to
+    download datasets later.
+  </li>
+  <li>
+    In terminal, run
+    <pre>python3 --version</pre>
+    and make sure you get the output
+    <pre>Python 3.6.7</pre>A
+    If you don't, please let me know. We'll need to reset the links.
+  </li>
+  <li>
+    In terminal run
+    <pre>pip3.6 install --upgrade tensorflow</pre>
+  </li>
+  <li>
+    Usually, we are not going to be using Tensorflow itself, but some other higher-level library like Keras.
+      <pre>pip3.6 install --upgrade keras</pre>
+  </li>
+</ol>
+<p>
+  Note that after you finish all of this python3 will no longer run the Python in which you installed
+  scikit-learn, so you may want to reinstall scikit-learn using pip3.6. That other, newer version of Python is still on your system,
+  and you can use it by putting the version in the command:
+  <pre>python3.7</pre>
+</p>
