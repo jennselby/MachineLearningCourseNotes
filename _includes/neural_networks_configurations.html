@@ -31,7 +31,7 @@
 <p>To better understand the inner workings of convolutional neural networks, check out our <a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningTutorials/blob/master/Convolutional%20Neural%20Network%20Tutorial.ipynb">Jupyter Notebook tutorial.</a></p>
 <h2>Recurrent Neural Networks</h2>
 <p>In our <a href="#fully-connected-feed-forward-network">fully connected network</a>, all information flows forward, and the inputs to a neuron are independent with respect to other inputs and to any outputs in later layers. What if we want a sequence to sequence network, where we feed in pieces of an input one at a time (see <a href="#problems-where-neural-networks-excel">Problems Where Neural Networks Excel</a>)?</p>
-<p>Recurrent Neural Networks (RNNs) allow feedback loops in the network, where the outputs from neurons can be fed back in as inputs to neurons in the same or earlier layers, and not just the immediately following layer.</p>
+<p>Recurrent Neural Networks (RNNs) allow feedback loops in the network, where the outputs from neurons can be fed back in as inputs to neurons in the same or earlier layers, and not just the immediately following layer. Below is a diagram of a simple recurrent layer with three recurrent units.</p>
 <p><img src="assets/img/3_Unit_RNN_Layer.jpg" alt="recurrent neuron" width="256"></p>
 <p>In the image above, each neuron has seven weighted connections, four for inputs from the previous layer and three for the previous output from each unit in the layer. In other words, at time \(t\):
     \[\begin{align}
@@ -48,15 +48,15 @@
 </p>
 
 <p>And similarly each \(Out_{x,t-2}\) could be further expanded to include \(Out_{x,t-3}\) and \(Out_{x,t-4}\) and so on. \(Out_{x,t}\) is dependent on its predecessors earlier in the input sequence.</p>
-<p>A particularly important type of RNN is the <strong>Long Short Term Memory (LSTM)</strong>, which thought to be better able to handle longer-term dependencies (that is related inputs that are further apart in the sequence) than other RNN structures. An LSTM unit, in addition to the usual output that is passed on to later layers and fed back into itself, has a long-term memory unit, usually called the context or cell. This gives it a separate storage area that can be used to remember information for a longer time, without necessarily affecting the intervening outputs of the neuron that go to other layers.</p>
-<p>The LSTM is composed of four fully connected neural networks that are fed both the new input for a timestep and the output of the previous timestep. The outputs of these networks are passed through three "gates" to decide what pieces of the current input and the context get put into the next output and context.</p>
+<h3>Long Short Term Memory</h3>
+<p>A particularly important type of RNN is the <strong>Long Short Term Memory (LSTM)</strong>, which thought to be better able to handle longer-term dependencies (that is related inputs that are further apart in the sequence) than other RNN structures. An LSTM layer has a long-term memory unit, usually called the context or cell. This gives it a separate storage area that can be used to remember information for a longer time, without necessarily affecting the intervening outputs of the neuron that go to other layers.</p>
+<p>Each LSTM layer is composed of four recurrent layers that are fed both the new input for a timestep and some of the outputs of the previous timestep. These layers represent the context cell and three "gates" that decide what pieces of the current input and the current context get put into the next output and next context state. The output from each layer is treated slightly differently, with the goal of having the network learn roughly the following functions:</p>
 <ul>
-<li>Forget gate: these weights allow some long-term memories to be forgotten.</li>
-<li>Input gate: these weights decide what new information will be added to the context cell.</li>
-<li>Output gate: these weights decide what pieces of the new information and updated context will be passed on to the output.</li>
+<li>Forget gate: the weights in this layer allow some long-term memories to be forgotten.</li>
+<li>Input gate: the weights in this layer decide what new information will be added to the context cell.</li>
+<li>Output gate: the weights in this layer decide what pieces of the new information and updated context will be passed on to the output.</li>
 </ul>
-<p>See this <a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningTutorials/blob/master/RecurrentNeuralNetworks.ipynb">Jupyter Notebook</a> for some code examples and exercises.</p>
-<p>For more information</p>
+<p>For more information on the details of LSTMs</p>
 <ul>
 <li>
 <a target="_blank" href="https://github.com/ageron/handson-ml/blob/master/14_recurrent_neural_networks.ipynb">https://github.com/ageron/handson-ml/blob/master/14_recurrent_neural_networks.ipynb</a> (goes along with a book; I have a copy you can use in class)</li>
@@ -71,3 +71,4 @@
 <li>
 <a target="_blank" href="https://apaszke.github.io/lstm-explained.html">https://apaszke.github.io/lstm-explained.html</a> (code in Torch7, includes LSTM equations)</li>
 </ul>
+<p>See this <a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningTutorials/blob/master/RecurrentNeuralNetworks.ipynb">Jupyter Notebook</a> for some code examples and exercises about RNNs in general.</p>
