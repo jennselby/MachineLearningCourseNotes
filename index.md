@@ -78,6 +78,8 @@ layout: default
 
 {% include data_word_vectors.html %}
 
+{% include generative_models.html %}
+
 # Setup and Tools
 
 {% include setting_up_python3.html %}
