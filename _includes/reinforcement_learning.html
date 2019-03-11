@@ -1,0 +1,39 @@
+<h2>Reinforcement Learning</h2>
+<p><strong>Reinforcement learning</strong> is somewhere in between supervised and unsupervised learning. It is meant to work with problems where we have an overall goal we want to get to, but we need the computer to learn lots of intermediate steps to get there, and we are not sure what those intermediate steps are.</p>
+<p>As input, we give our model a representation of the current state of a system and have it choose an action as output. We compute the next state of the system given that output and give the model a reward based on that new state. That is, we don't tell the model what answer we want (as we do in supervised learning), but we do tell it how much we liked its answer. It uses this reward (positive or negative) to learn what actions to take.</p>
+<p>For instance, if the model is learning to play checkers, we give it the current state of the board and have it pick among the legal moves available. If this move makes it win the game, it gets a positive reward. If it makes it lose the game, it gets a negative reward. Most of the time, it gets a reward of zero. This makes it incredibly hard to understand what particular actions were (most) responsible for the reward, since it was certainly not the last action alone that did it. This is known as the <strong>credit assignment problem</strong>. </p>
+<p>There are three main ways that people currently implement reinforcement learning models:</p>
+<ul>
+    <li><a class="jump-to-section" href="#q-learning">Q Learning</a></li>
+    <li><a class="jump-to-section" href="#policy-gradient">Policy Gradient</a></li>
+    <li><a class="jump-to-section" href="#evolutionary-methods">Evolutionary Methods</a></li>
+</ul>
+<h3>Further Resources:</h3>
+<ul>
+    <li><a target="_blank" href="http://kvfrans.com/reinforcement-learning-basics/">Reinforcement Learning Basics by Kevin Frans</a></li>
+    <li><a target="_blank" href="https://www.youtube.com/watch?v=e3Jy2vShroE">[6 min] Intro to Reinforcement Learning</a></li>
+    <li><a target="_blank" href="https://www.youtube.com/watch?v=2pWv7GOvuf0&amp;list=PL7-jPKtc4r78-wCZcQn5IqyuWhBZ8fOxT">[1.5 hours] Intro to Reinforcement Learning</a> (There is a lot more math and technical details in this video.)</li>
+    <li><a target="_blank" href="https://www.youtube.com/watch?v=79pmNdyxEGo&amp;t=9s">[9 min] Deep Q-Learning for Playing Video Games</a></li>
+    <li><a target="_blank" href="https://www.youtube.com/watch?v=Ih8EfvOzBOY">[3 min] Google DeepMind's Deep Q-Learning</a></li>
+    <li>Solving Cartpole (a classic reinforcement learning problem):
+        <ul>
+            <li><a target="_blank" href="http://kvfrans.com/simple-algoritms-for-solving-cartpole/">Simple Algorithms for Solving Cartpole </a></li>
+            <li><a target="_blank" href="https://keon.io/deep-q-learning/">Deep Q-Learning with Keras and Gym</a></li>
+            <li><a target="_blank" href="https://medium.com/@gtnjuvin/my-journey-into-deep-q-learning-with-keras-and-gym-3e779cc12762">A Journey Into Deep Q-Learning with Keras and Gym</a></li>
+            <li><a target="_blank" href="https://github.com/carlshan/intro_to_machine_learning/blob/master/lessons/Reinforcement_Learning/RL_Tutorial.md">Carl's tutorial on solving Cartpole</a></li>
+        </ul>
+    </li>
+    <li><a target="_blank" href="http://karpathy.github.io/2016/05/31/rl/">Deep Reinforcement Learning to Play Pong</a></li>
+    <li><a target="_blank" href="https://www.nervanasys.com/demystifying-deep-reinforcement-learning/">Deep Reinforcement Learning to Play Breakout aka Brick Breaker</a></li>
+    <li><a target="_blank" href="https://yanpanlau.github.io/2016/07/10/FlappyBird-Keras.html">Keras Deep Q Learning to Play Flappy Bird</a></li>
+    <li>Here are some additional resources recommended by a speaker who visited a previous class:
+        <ul>
+            <li><a target="_blank" href="https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/">https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/</a></li>
+            <li><a target="_blank" href="https://arxiv.org/pdf/1604.07316v1.pdf">https://arxiv.org/pdf/1604.07316v1.pdf</a></li>
+            <li><a target="_blank" href="https://www.quora.com/Artificial-Intelligence-What-is-an-intuitive-explanation-of-how-deep-Q-networks-DQN-work">https://www.quora.com/Artificial-Intelligence-What-is-an-intuitive-explanation-of-how-deep-Q-networks-DQN-work</a></li>
+            <li><a target="_blank" href="https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf">https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf</a></li>
+            <li><a target="_blank" href="https://arxiv.org/abs/1509.02971">https://arxiv.org/abs/1509.02971</a></li>
+        </ul>
+    </li>
+    <li><a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningTutorials/blob/master/ReinforcementLearning.ipynb">My Reinforcement Learning Jupyter Notebook</a></li>
+</ul>

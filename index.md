@@ -80,6 +80,14 @@ layout: default
 
 {% include generative_models.html %}
 
+{% include reinforcement_learning.html %}
+
+{% include q_learning.html %}
+
+{% include policy_gradient.html %}
+
+{% include evolutionary_methods.html %}
+
 # Setup and Tools
 
 {% include setting_up_python3.html %}

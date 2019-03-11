@@ -1,0 +1,16 @@
+<h2>Q Learning</h2>
+<p>In  Q learning, the idea is that we are trying to learn a function <em>Q</em> that takes in two inputs -- the current state of the world and a particular action -- and returns the <em>quality</em> or value of taking that action from that state.</p>
+<p>In terms of making this more like a supervised problem, what we want is to have our model take in the current state of the environment and give us the correct quality value for each possible action that could be taken. (Alternatively, it could take in both the state and an action and return the quality value for that action only, but below I will be assuming that the action is not an input.)</p>
+<p>To gain training data, we start interacting with the environment, taking random actions and receiving rewards. As we build up (state, action, reward, new state) quadruplets, we can start using these as our training data. We randomly pick some of these as the next batch we'll show the model, a technique called <strong>experience replay</strong>. Randomly choosing the order can help the model train better, so that it is not seeing many similar states at one time, the way it would if we went chronologically.</p>
+<p>The label (the thing we are telling the model it <em>should</em> have returned, for training purposes) is the reward we actually got for taking that action in the input state. Of course, not every action we take gets a reward -- that's part of what makes this a reinforcement learning problem. If this action did not terminate the episode (and we might still get further rewards), then we set the target value to be the current reward plus the value of the new state that the action got us to (at a discount, because this state should not get full credit for the next state's worth).</p>
+<p>In other words, for a particular state, the targets for each action are</p>
+<ul>
+    <li> for every action that was not the one we took this time: the model's current value of that (state, action) pair</li>
+    <li>for the action we took
+        <ul>
+            <li>if it ended the episode: the reward we obtained</li>
+            <li>if the episode was still going: the reward we obtained + discount * max(value of each action possible from the next state)</li>
+        </ul>
+    </li>
+</ul>
+<p> After training on enough input states and values for each action from that state, the model learns to value the actions at a particular state well, meaning that the action with the maximum value is the best one to take in this state.</p>
