@@ -2,6 +2,8 @@
 layout: default
 ---
 
+### Written by Jen Selby and Carl Shan
+
 # Course Notes
 
 {% include machine_learning_categories.html %}
