@@ -9,16 +9,11 @@
 <h3>Algorithm Behind Random Forest</h3>
 <p>(Some material taken from <a target="_blank" href="https://citizennet.com/blog/2012/11/10/random-forests-ensembles-and-performance-metrics/">https://citizennet.com/blog/2012/11/10/random-forests-ensembles-and-performance-metrics/</a>)</p>
 <ol>
-<li>Choose to build T number of trees. Each tree consists of a set of nodes at which the data splits. The first, or root, node, contains all of the data, which is then split amongst its child nodes.</li>
+<li>Choose how many decision trees you will build for your model.</li>
 <li>To build each tree, do the following:</li>
 <ol>
-<li>Sample <em>N</em> data points (where N is about 66% as large as the total number of your data points) at random with replacement to create a subset of the data. This is your training data for this tree.</li>
-<li>For each node:
-<ol>
-<li>Choose <em>m</em> predictor variables at random from all the predictor variables. (See below for how to choose <em>m</em>.)</li>
-<li>Out of those <em>m</em>, use the predictor variable that provides the best split, according to some objective function, to do a split for that node.</li>
-</ol>
-</li>
+<li>Sample <em>N</em> data points (where N is about 66% of the total number of data points) at random with replacement to create a subset of the data. This is your training data for this tree.</li>
+<li>Now, create the tree as you would normally create a <a class="jump-to-section" href="#decision-trees">Decision Tree</a>, with one exception: at each node, choose <em>m</em> features at random from all the features (see below for how to choose <em>m</em>.) and find the best split from among those features only.</li>
 </ol>
 </ol>
 <h3>Regression: Minimizing sum of squared errors</h3>
@@ -27,10 +22,10 @@
 <p>There are three slightly different systems:</p>
 <ul>
 <li>Random splitter selection: <em>m</em>=1</li>
-<li>Breiman's bagger: <em>m</em>= total number of predictor variables</li>
-<li>Random forest: <em>m</em> much smaller than the number of predictor variables. The creator of the RF algorithm, Leo Brieman suggests three possible values for m: &frac12;&radic;<em>v</em>, &radic;<em>v</em>, and 2&radic;<em>v</em> where <em>v</em> is the number of predictor variables.</li>
+<li>Breiman's bagger: <em>m</em>= total number of features</li>
+<li>Random forest: <em>m</em> much smaller than the number of features. The creator of the RF algorithm, Leo Brieman suggests three possible values for <em>m</em>: &frac12;&radic;<em>v</em>, &radic;<em>v</em>, and 2&radic;<em>v</em> where <em>v</em> is the number of features.</li>
 </ul>
-<p>The intuition behind choosing <em>m</em> is that a lower m reduces correlation between trees, but it also reduces the predictive power of each tree (higher bias, lower variance in predictions). A higher <em>m</em> increases correlation between trees but also the predictive power of each tree (lower bias, higher variance in predictions).</p>
+<p>The intuition behind choosing <em>m</em> is that a lower <em>m</em> reduces correlation between trees, but it also reduces the predictive power of each tree (higher bias, lower variance in predictions). A higher <em>m</em> increases correlation between trees but also the predictive power of each tree (lower bias, higher variance in predictions).</p>
 <p>Why is this? Well if the trees are uncorrelated (e.g., low <em>m</em>), they are unlikely to have shared many features in common and variances in individual trees will be smoothed over by the other trees in the forest (e.g., a funky tree will be outvoted by its peers if its peers used different features). Similarly, a lower choice of <em>m</em> will lead to trees that are less predictive (higher bias), but the RF as a whole will have a lower variance.</p>
 <h3>Using Random Forest</h3>
 <ul>
