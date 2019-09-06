@@ -1,5 +1,7 @@
 <h2>Regression Validation</h2>
+<p>The two most common validation metrics for regression problems are \(R^2\) ad RMSE.</p>
 <h3>\(R^2\)</h3>
+<p>The equation for \(R^2\) is</p>
 <p class="indented">
     $$ 1 - \frac{sum( (y_{pred} - y_{truth})^2)}{sum( (averageY - y_{truth})^2 )} $$
 </p>
@@ -12,7 +14,7 @@
 <p class="indented">
   $$ \frac{sum((y_{pred} - y_{truth})^2)}{numDatapoints} $$
 </p>
-<p>This measurement represents the standard deviation of the residuals. (<strong>Residuals</strong> are equal to the difference between your prediction and the actual value of what you're trying to predict.)</p>
+<p>This measurement represents the standard deviation of the residuals. <strong>Residuals</strong> are equal to the difference between your prediction and the actual value of what you're trying to predict.</p>
 <p>The lower the RMSE of your model, the better it is.</p>
 <p>You can also visually assess how well your model fit by plotting your residuals. If your regression model was a useful one, then the residuals should appear to be randomly distributed around the X-axis, and their average should be approximately
   zero.</p>
