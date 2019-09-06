@@ -13,19 +13,18 @@
 </ol>
 <p>A Decision Tree model is essentially trained on your data by doing the following:</p>
 <ol>
-<li>Select an attribute: for example, select the Name-Is-Dracula attribute</li>
-<li>Split along that attribute: split the data into those for whom the data is Yes and No</li>
-<li>For each of these buckets of data (aka the "child nodes"), figure out the next best attribute to split on</li>
-<li>Repeat this process until a "stopping condition" is met. Examples of stopping conditions:
+<li>Select the attribute whose values will best split the datapoints into their classes: for example, select the Name-Is-Dracula attribute because everyone named Dracula in this dataset is a vampire</li>
+<li>Split along that attribute: split the data into those for whom the data is Yes and No, or is less than or greater than some value</li>
+<li>For each of these buckets of data (called child nodes), repeat these three steps until a stopping condition is met. Examples of stopping conditions:
 <ul>
 <li>There's too little data left to reasonably split</li>
-<li>All the data belong to one class (e.g., all the data in the child node are vampires)</li>
+<li>All the data belong to one class (e.g., all the data in the child node are not-vampires)</li>
 <li>The tree has grown too large</li>
 </ul>
 </li>
 </ol>
 <h3>Measuring the best split: Gini or Entropy</h3>
-<p>How do you choose the "best split"? The sklearn library provides two methods that you can choose between to find the best split: Gini (also known as Impurity) and Entropy (also known as Information Gain) that you can give as inputs to a Decision Tree model. Both are a measurement of how well a particular split was able to separate the classes.</p>
+<p>How do you choose the best split? The sklearn library provides two methods that you can choose between to find the best split: Gini (also known as Impurity) and Entropy (also known as Information Gain) that you can give as inputs to a Decision Tree model. Both are a measurement of how well a particular split was able to separate the classes.</p>
 <p>The worst split for both Gini and Entropy are ones that split the two nodes such that classes are evenly divided between the two nodes (that is, both nodes contain 50% of Class A and 50% of Class B).
 </p>
 <p>
