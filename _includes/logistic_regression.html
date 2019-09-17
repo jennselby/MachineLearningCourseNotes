@@ -2,37 +2,36 @@
 <p><strong>Inputs:</strong> numerical (like linear regression)</p>
 <p><strong>Output:</strong> a number between 0 and 1, inclusive (that is, a probability).</p>
 <p><strong>Supervised: </strong>To get an initial model, you need to give it sample input/output pairs, where each output would be either 0 or 1.</p>
-<p><strong>The motivation</strong>: You have sets of observations that fall into two different types. Given a new set of observations, you'd like to predict which type it is. You want to classify an input by looking at the probability (which has to
-  be between 0 and 1) that it is the first type. But with linear regression, there is nothing that restricts the output. What happens when the combination of parameters and inputs your model generates outputs that ranges far beyond 1 or below 0?
+<p><strong>The motivation</strong>: You have sets of observations that fall into two different types. Given a new set of observations, you'd like to predict which type it is. Your model should output the probability that it is the first type. Probabilities need to fall in the range [0-1], but with linear regression, there is nothing that restricts the output. What happens when your model generates outputs that are far above 1 or below 0?
   Logistic regression uses a function called the <a target="_blank" href="https://en.wikipedia.org/wiki/Logit">logit</a> that constrains the output between 0 and 1.</p>
 <p>For example, you want to classify someone as being a vampire or not. You know their height, weight, how many seconds they can last in the sun before burning up and how they would rate the taste of garlic on a scale of 1-10. Your desired output is
   one of two things: "vampire" or "not vampire."</p>
 <p>After you train your logistic regression model using the heights, weights, time in the sun, and garlic preferences of beings whose vampire status is known, it can predict the probability of a new person based on their characteristics (e.g.,
   Harold is about 90% likely to be a vampire).</p>
 <p><strong>Using the model as a classifier: </strong>Once you have a trained logistic regression model, if you want it to predict which type an input is (vampire/not vampire), then you need to pick a threshold above which to classify someone as a
-  vampire. For example, if you picked p = 0.5, then you could say that for all new people, if passing their data through the model yielded a probability &gt; 0.5, you would be getting the holy water and garlic ready.</p>
-<p><strong>Using the model as a regression: </strong>Perhaps what you really want is to know how each of your inputs affects the chance that a sample is one category or another. Logistic regression can give you weights for each of your inputs, the
-  numbers it is multiplying each input by within the logit function to get the output probabilities.</p>
-<p><strong>The math: <br /></strong>Just like in linear regression, we are looking to find the best fit for parameters that we would multiply by each input. That is, if we have four inputs we are looking at, we want to find a, b, c, and d that best
-  fit the data for an equation</p>
+  vampire. For example, if you picked p = 0.5, then you could say that for all new people, if passing their data through the model yielded a probability &gt; 0.5, you would be getting the holy water and garlic ready. If you wanted to err on the side of being prepared for vampires, you might drop the threshold, say to 0.25, so even if the model said it was less likely than not, you would still assume vampire if it was at least 25% probable..</p>
+<p><strong>Using the model to learn feature importance: </strong>Perhaps what you really want is to know how each of your inputs affects the chance that a sample is one category or another. Logistic regression can give you weights for each of your inputs, the numbers it is multiplying each input by within the logit function to get the output probabilities. This is what gives it the name <em>regression</em>: that it learns coefficients for each feature.</p>
+<p><strong>The math: <br /></strong>Just like in linear regression, we are looking to find the best fit for parameters that we would multiply by each input. That is, if we have four inputs we are looking at, we want to find a, b, c, d, and intercept that best fit the data for an equation</p>
 <p>
-  $$y = a*x_1 + b*x_2 + c*x_3 + d*x_4$$
+  $$y = a*x_1 + b*x_2 + c*x_3 + d*x_4 + intercept$$
 </p>
-<p>Below, we'll represent the right side of the equation as "inputs*parameters" as a shorthand.</p>
+<p>Below, we'll represent the right side of the above equation as "inputs*parameters" as a shorthand.</p>
 <p>Since your output is a probability, it needs to satisfy two constraints:</p>
 <ol>
   <li>Your output always needs to be positive.</li>
   <li>Your positive output always needs to be between 0 and 1.</li>
 </ol>
-<p>How do you ensure the first condition? You use the exponential function in constructing your regression equation. Specifically, you could try</p>
+<p>How do you ensure the first condition? You use the <a target="_blank" href="https://en.wikipedia.org/wiki/Exponential_function">exponential function</a> in constructing your regression equation. The output of the exponential function approaches zero as the inputs get smaller, but it never outputs below zero. Specifically, you could try</p>
 <p>
-  $$probability = e^{inputs*parameters}$$
+  $$y= e^{inputs*parameters}$$
 </p>
-<p>Now how do you also satisfy the second condition? You use a fraction, getting a probability with</p>
+<p>Now how do you also satisfy the second condition? You can use the above expression in a fraction, getting a probability with</p>
 <div>
-  $$ \frac{e^{inputs*parameters}}{1 + e^{inputs*parameters}}$$
+  $$y = \frac{e^{inputs*parameters}}{1 + e^{inputs*parameters}}$$
 </div>
-<p>This ends up being your regression model. Then you can perform some algebra so that you have the "parameters * input" on one side of the equation, and you will end up with</p>
+<p>Notice how as the exponential expression approaches zero, so does the whole fraction. As it grows toward infinity, both the numerator and denominator grow, so the overall fraction approaches one. You can see this in the shape of $$y = \frac{e^{x}}{1 + e^{x}}$$</p>
+<p><a href="https://commons.wikimedia.org/wiki/File:Logistic-curve.svg#/media/File:Logistic-curve.svg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/1200px-Logistic-curve.svg.png" alt="Logistic-curve.svg" width="50%"></a><br>By <a href="//commons.wikimedia.org/wiki/User:Qef" title="User:Qef">Qef</a> (<a href="//commons.wikimedia.org/wiki/User_talk:Qef" title="User talk:Qef">talk</a>) - Created from scratch with gnuplot, Public Domain, <a href="https://commons.wikimedia.org/w/index.php?curid=4310325">Link</a></p>
+<p>This ends up being your regression model. You can perform some algebra so that you have the "parameters * input" on one side of the equation, and you will end up with</p>
 <p>
   $$log_2 (p/(1-p)) = inputs*parameters$$
 </p>
