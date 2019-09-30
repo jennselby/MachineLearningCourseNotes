@@ -1,7 +1,7 @@
 <h2>Classification Validation</h2>
 <p>It is always a good idea to validate your model, <a class="jump-to-section" href="#validation">as we have discussed</a>.</p>
 <h3>Precision, Recall, and F-Measure</h3>
-<p>For classification, you could use a fairly simple measure of what ratio of points were placed into the correct category. This is called <strong>accuracy</strong>. However, this hides a lot of potentially important details about how your model is doing.</p>
+<p>For classification, you could use a fairly simple measure of what ratio of points were placed into the correct category. This is called <strong>accuracy</strong>. However, this hides a lot of potentially important details about how your model is doing. This can be particularly bad if you have <a target="_blank" href="https://towardsdatascience.com/handling-imbalanced-datasets-in-machine-learning-7a0e84220f28">far more examples of some classes than others</a>.</p>
 <p>Another option is to look at each class individually and see how well the model did in different aspects. For this, we put each test data point into one of four categories.</p>
 <ul>
 <li>true positive: the model correctly predicted this point was in this class</li>
