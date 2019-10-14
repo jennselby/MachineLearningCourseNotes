@@ -26,9 +26,9 @@ layout: default
 
 {% include naive_bayes.html %}
 
-{% include classification_validation.html %}
-
 {% include support_vector_machines.html %}
+
+{% include classification_validation.html %}
 
 {% include ethical_issues.html %}
 
