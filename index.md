@@ -68,6 +68,8 @@ layout: default
 
 {% include dbscan_clustering.html %}
 
+{% include hierarchical_clustering.html %}
+
 {% include clustering_validation.html %}
 
 {% include neural_networks_intro.html %}

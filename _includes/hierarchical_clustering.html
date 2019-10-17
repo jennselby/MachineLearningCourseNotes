@@ -1,0 +1,28 @@
+<h2>Hierarchical Clustering</h2>
+
+<p><strong>Hierarchical clustering</strong> (also known as <strong>agglomerative clustering</strong>) can have hyperparameters more like DBSCAN (where you decide the maximum distance between datapoints that are placed in a cluster together) or like k-means (where you decide how many clusters there should be).</p>
+
+<p>The hierarchical clustering algorithm works like this</p>
+
+<ul>
+	<li>While there are still points that have not been assigned to a cluster:
+		<ul>
+			<li>Find the two closest points where at least one of the points is not in a cluster</li>
+            <li>If you are using the hyperparameter that sets a maximum distance for points to be in a cluster together and these points are further than that, then stop.</li>
+            <li>Otherwise, create a new cluster that consists of the point not in a cluster and
+                <ul>
+                    <li>the other point, if it was not already in a cluster</li>
+                    <li>the largest cluster that the other point belongs to</li>
+                </ul>
+            </li>
+		</ul>
+	</li>
+</ul>
+
+<p>At the end of the algorithm, if you did not use the maximum distance hyperparameter, all points will be in pairs with another point or another cluster.</p>
+
+<p>The output of hierarchical clusteing can be represented in a <a target="_blank" href="https://www.displayr.com/what-is-hierarchical-clustering/">tree structure, or dendrogram</a>. If you are using the hyperparameter that sets the number of clusters, then you can cut the tree where there are that many branches and consider all points below to be in the same cluster.</p>
+
+<img alt="data and dendrogram" src="https://46gyn61z4i0t1u1pnq2bbk2e-wpengine.netdna-ssl.com/wp-content/uploads/2018/03/Screen-Shot-2018-03-28-at-11.48.48-am.png" width="50%">
+
+<p>In the dendrogram above, you could make a cut at the top level, meaning you would have two clusters, one with A and B, and one with C, D, E, and F. Or you could cut one more level down to get three clusters: one with A and B, one with just C, and one with D, E, and F. And so on.</p>
