@@ -49,6 +49,10 @@ a small {
   display:block;
 }
 
+ol{
+  list-style-image:none;
+}
+
 ul{
   list-style-image:url('../images/bullet.png');
 }

@@ -35,3 +35,29 @@ The first technique is not an option for actual data analyses, where we are usin
     <li><a class="jump-to-section" href="#generative-validation">Generation</a></li>
     <li><a class="jump-to-section" href="#reinforcement-learning-validation">Reinforcement Learning</a></li>
 </ul>
+<h2>Validation Exercises</h2>
+<ul>
+    <li>Add validation code to one of the <a class="jump-to-section" href="#exercises">linear regression or classification notebooks</a>. Assess the performance of the model. What are the best and worst possible scores it could get? Why do you think the model is getting the score you're seeing? How do the scores between the training and testing sets compare?</li>
+    <li>Answer the following questions:
+        <ol>
+            <li>Thinking about the R^2 metric used for evaluating regression, answer the following questions:
+                <ol>
+                    <li>What is the highest possible score you could get?</li>
+                    <li>If your model simply predicted the average value of the training set no matter what the input was, what score would you get on a test set whose average matched that of the training set?</li>
+                    <li>What is the lowest score that you can get?</li>
+                </ol>
+            </li>
+            <li>When using accuracy to measure your model's performance on a classification problem:
+                <ol>
+                    <li>What is the best possible score you could get?</li>
+                    <li>If your model always predicted the same class no matter what the input, what score would you get on a test set where 85% of the items were in that class?</li>
+                    <li>What is the worst possible score you can get on a dataset that only has two classes?</li>
+                </ol>
+            </li>
+            <li>A model gets a recall score of 0 for class A on a test set with classes A, B, and C. If you take one of the test items that is in class A and have this model predict what class it is, what will it predict?</li>
+            <li>A model gets a precision score of 1 for class A on a test set with classes A, B, and C. If you take one of the test items that is in class A and have your model predict what class it is, what will it predict?</li>
+            <li>If a model with classes A and B has an AUC score of 1 and you give it an item from the test set that is in class A, what class will it predict and what probability will it give for that class?</li>
+            <li>If a model with classes A and B has an AUC score of 0 and you give it an item from the test set that is in class A, what class will it predict and what probability will it give for that class?</li>
+        </ol>
+    </li>
+</ul>

@@ -72,13 +72,17 @@ layout: default
 
 {% include clustering_validation.html %}
 
+{% include clustering_exercises.html %}
+
 {% include neural_networks_intro.html %}
 
 {% include neural_networks_problem_domains.html %}
 
-{% include neural_networks_configurations.html %}
-
 {% include neural_networks_training.html %}
+
+{% include neural_networks_exercises.html %}
+
+{% include neural_networks_configurations.html %}
 
 {% include data_word_vectors.html %}
 
@@ -103,6 +107,8 @@ layout: default
 {% include intro_to_pandas.html %}
 
 {% include setting_up_tensorflow_keras.html %}
+
+{% include all_exercises.html %}
 
 # Example Datasets
 

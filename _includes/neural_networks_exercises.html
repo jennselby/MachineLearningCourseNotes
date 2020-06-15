@@ -1,0 +1,36 @@
+<h2>Neural Networks Exercises</h2>
+
+<ul>
+    <li>Option 1: Take a look at the <a target="_blank" href="https://playground.tensorflow.org">Tensorflow Playground interactive tool</a>.
+        <ul>
+            <li>First, make sure you understand what the dataset inputs are and what the outputs are. This is not obvious! It might help to talk them through with a partner or with me (or both). Write a brief summary of the inputs and outputs of the dataset.</li>
+            <li>There are a lot of different options you can modify. Pick a few of the things you can change and record what you see as you change them in terms of how they affect the network performance in terms of the loss, the graphical output, the neuron weights, and the number of iterations until the network seems to be working.</li>
+        </ul>
+    </li>
+    <li>Option 2: Take a look at one of the <a target="_blank" href="https://www.cs.ryerson.ca/~aharley/vis/">interactive visualizations</a> of a fully-connected network that attempts to recognize numbers that you write (decide whether the 2D or the 3D viz is easier for you to understand). What do you notice about the patterns in the weights? How well does the network perform? How does it compare to the convolutional network?
+    </li>
+    <li>Option 3: Find a tutorial using a neural network library (some options are listed below), and answer as many of the following questions as you can (not all will be relevant for all tutorials). If you want to copy the code and try running it, so that you can, say, add print statements to better understand what is going on, see <a class="jump-to-section" href="#setting-up-tensorflow-and-keras">Setting Up Tensorflow and Keras</a> for instructions to install libraries you may need.
+        <ol>
+            <li>What type of data are they using?</li>
+            <li>What conversions (if any) had to be done to the data before it could be put into the neural network?</li>
+            <li>What is the output of the neural network, both in terms of what it looks like to the computer (e.g. integers in the range [0-2]) and how humans should interpret it (e.g. the type of iris)?</li>
+            <li>How many hidden layers does the network have, and what type are they (e.g. fully connected, convolutional, recurrent, LSTM, sparse, etc.)?</li>
+            <li>What activation function(s) does it use?</li>
+            <li>What loss or cost function is it using?</li>
+            <li>What kind of validation (if any) are they using?</li>
+            <li>What other validation methods might work for this type of problem?</li>
+            <li>Why do you think the authors may have chosen this architecture for their network?</li>
+            <li>Are there any changes you might try, if you were going to improve on their model?</li>
+        </ol>
+    Some suggestions for tutorials:
+        <ul>
+            <li><a target="_blank" href="https://github.com/ml4a/ml4a-guides/blob/master/notebooks/convolutional_neural_networks.ipynb">https://github.com/ml4a/ml4a-guides/blob/master/notebooks/convolutional_neural_networks.ipynb</a></li>
+            <li><a target="_blank" href="https://github.com/ml4a/ml4a-guides/blob/master/notebooks/recurrent_neural_networks.ipynb">https://github.com/ml4a/ml4a-guides/blob/master/notebooks/recurrent_neural_networks.ipynb</a></li>
+            <li><a target="_blank" href="https://github.com/ml4a/ml4a-guides/blob/master/notebooks/sequence_to_sequence.ipynb">https://github.com/ml4a/ml4a-guides/blob/master/notebooks/sequence_to_sequence.ipynb</a></li>
+            <li><a target="_blank" href="https://github.com/ml4a/ml4a-guides/blob/master/notebooks/neural-net-painter.ipynb">https://github.com/ml4a/ml4a-guides/blob/master/notebooks/neural-net-painter.ipynb</a></li>
+            <li><a target="_blank" href="https://www.pyimagesearch.com/2016/09/26/a-simple-neural-network-with-python-and-keras/">https://www.pyimagesearch.com/2016/09/26/a-simple-neural-network-with-python-and-keras/</a></li>
+        </ul>
+    </li>
+    <li>Option 4 (Advanced): Take the code from a tutorial (such as one of the ones listed above), and try to change some of the parameters. These libraries are tricky to use! Don't be discouraged if something as "easy" as adding a new layer is hard to do. We learn through trying. See Installing Tensorflow and Keras for instructions to install libraries you may need.
+    </li>
+</ul>
