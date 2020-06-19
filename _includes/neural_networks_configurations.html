@@ -29,7 +29,11 @@
 <li><a target="_blank" href="http://www.deeplearningbook.org/contents/convnets.html">http://www.deeplearningbook.org/contents/convnets.html</a></li>
 <li><a target="_blank" href="http://www.wildml.com/2015/11/understanding-convolutional-neural-networks-for-nlp/">http://www.wildml.com/2015/11/understanding-convolutional-neural-networks-for-nlp/</a></li>
 </ul>
-<p>To better understand the inner workings of convolutional neural networks, check out our <a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningTutorials/blob/master/Convolutional%20Neural%20Network%20Tutorial.ipynb">Jupyter Notebook tutorial.</a> To practice tuning a convolutional neural network, try <a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningTutorials/blob/master/ConvolutionalNeuralNetworkTuning.ipynb">this tutorial</a>.</p>
+<h3>Suggested Exercises</h3>
+<ul>
+    <li>Learn more about how the weights in a convolutional layer work, using the questions and exercises in this <a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningTutorials/blob/master/Convolutional%20Neural%20Network%20Tutorial.ipynb">Jupyter Notebook.</a></li>
+    <li>Get practice tuning a convolutional neural network, using this <a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningTutorials/blob/master/ConvolutionalNeuralNetworkTuning.ipynb">Jupyter Notebook</a></li>
+</ul>
 <h2>Recurrent Neural Networks</h2>
 <p>In our <a href="#fully-connected-feed-forward-network">fully connected network</a>, all information flows forward, and the inputs to a neuron are independent with respect to other inputs and to any outputs in later layers. What if instead we want to feed in a series of inputs of varying length? What if we want to also get out a sequence of varying length, called a <strong>sequence-to-sequence</strong> model (see <a href="#problems-where-neural-networks-excel">Problems Where Neural Networks Excel</a>)? We want some way to be able to let the network let information from previous inputs affect the output of the current input.</p>
 <p>Recurrent Neural Networks (RNNs) allow feedback loops in the network, where the outputs from neurons can be fed back in as inputs to neurons in the same or earlier layers, and not just the immediately following layer. Below is a diagram of a simple recurrent layer with three recurrent units.</p>
@@ -73,4 +77,8 @@
 <li>
 <a target="_blank" href="https://apaszke.github.io/lstm-explained.html">https://apaszke.github.io/lstm-explained.html</a> (code in Torch7, includes LSTM equations)</li>
 </ul>
-<p>See this <a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningTutorials/blob/master/RecurrentNeuralNetworks.ipynb">Jupyter Notebook</a> for some code exercises about how weights in RNNs work and this <a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningTutorials/blob/master/RecurrentNeuralNetworksTuning.ipynb">Jupyter Notebook</a> for exercises around tuning RNNs or adapting them to new datasets.</p>
+<h3>Suggested Exercises</h3>
+<ul>
+    <li>Complete the exercises about how recurrent neural network layers work in this <a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningTutorials/blob/master/RecurrentNeuralNetworks.ipynb">Jupyter Notebook</a>.</li>
+    <li>Complete one of the exercises about tuning an RNN or adapting it to a new problem in this <a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningTutorials/blob/master/RecurrentNeuralNetworksTuning.ipynb">Jupyter Notebook</a>.</li>
+</ul>

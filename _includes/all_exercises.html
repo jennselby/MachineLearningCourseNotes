@@ -3,7 +3,7 @@
 <ul>
     <li><a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningCourseNotes/blob/master/assets/ipynb/LinearRegression.ipynb">Linear Regression</a></li>
     <li>Classification
-        <ul>
+        <ul class="exercises_list">
             <li><a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningCourseNotes/blob/master/assets/ipynb/DecisionTree.ipynb">Decision Tree and Random Forest</a></li>
             <li><a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningCourseNotes/blob/master/assets/ipynb/LogisticRegression.ipynb">Logistic Regression: generated data</a></li>
             <li><a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningCourseNotes/blob/master/assets/ipynb/LogisticRegressionIris.ipynb">Logistic Regression: iris data</a></li>
@@ -15,4 +15,82 @@
     <li><a class="jump-to-section" href="#data-processing-exercise">Data Processing</a></li>
     <li><a class="jump-to-section" href="#clustering-exercises">Clustering</a></li>
     <li><a class="jump-to-section" href="#neural-networks-exercises">Neural Networks</a></li>
+    <li>Convolutional Neural Networks
+        <ul class="exercises_list">
+            <li><a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningTutorials/blob/master/Convolutional%20Neural%20Network%20Tutorial.ipynb">Inner Structure</a></li>
+            <li><a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningTutorials/blob/master/ConvolutionalNeuralNetworkTuning.ipynb">Tuning</a></li>
+        </ul>
+    </li>
+    <li>Recurrent Neural Networks
+        <ul class="exercises_list">
+            <li><a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningTutorials/blob/master/RecurrentNeuralNetworks.ipynb">Inner Structure</a></li>
+            <li><a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningTutorials/blob/master/RecurrentNeuralNetworksTuning.ipynb">Tuning/Changing Dataset</a></li>
+        </ul>
+    </li>
+    <li><a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningTutorials/blob/master/WordVectors.ipynb">Word Vectors</a></li>
+    <li><a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningTutorials/blob/master/WordVectorsTuning.ipynb">Natural Language Classification</a></li>
+    <li><a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningTutorials/blob/master/GAN.ipynb">Generative Adversarial Networks</a></li>
+    <li><a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningTutorials/blob/master/ReinforcementLearning.ipynb">Reinforcement Learning</a></li>
+    <li>Using <a target="_blank" href="https://becominghuman.ai/genetic-algorithm-for-reinforcement-learning-a38a5612c4dc">the code in this tutorial</a> as a model, use evolutionary methods to learn the game in <a target="_blank" href="https://nbviewer.jupyter.org/github/jennselby/MachineLearningTutorials/blob/master/ReinforcementLearning.ipynb">this notebook</a></li>
+</ul>
+<h3>Example Data Analysis Scenarios</h3>
+<p>Choose some of the scenarios below. For each one, answer the following questions. Please explain where your targets/rewards would come from (#2), how you would make your inputs numerical (#3), and a bit of your reasoning on ethical issues (#6). Other questions do not need explanation.</p>
+
+<h4>Questions:</h4>
+
+<ol>
+    <li>What type of machine learning problem (regression, classification, clustering, generation, reinforcement learning) do you think this is?</li>
+    <li>If this is a supervised problem, what will you use as your targets (aka labels)? If it is reinforcement learning, what will you use as your rewards? If it is unsupervised, just say "unsupervised".</li>
+    <li>What processing do you need to do to your input data?</li>
+    <li>What type(s) of model(s) would you try? You may need to combine models. Remember to start with the simplest thing that might work! Types of models we've talked about are linear regression, decision trees, random forest, logistic regression, naive bayes, support vector machines, K-means, DBSCAN, hierarchical clustering, fully connected neural networks, convolutional neural networks, recurrent neural networks, generative adversarial networks (please also specify the types of the internal networks), deep Q learning, and evolutionary methods.</li>
+    <li>What validation metric(s) would you use to decide how well you're doing?</li>
+    <li>What ethical challenges do the data collection, creation, and/or use of this model create? If you feel there aren’t any, just say "None".</li>
+</ol>
+
+<h4>Scenarios:</h4>
+
+<ul>
+    <li>You have pet photos that people have posted (already cropped down to show just the pet). You would like to make a model that can predict what kind of animal it is.</li>
+    <li>You have customer reviews, each one of which has a rating from 1 (worst) to 10 (best) and some text. The reviews vary greatly in their length. You would like to use this to write a model that can predict if text is positive, negative, or neutral.</li>
+    <li>You have data from a movie streaming service that consists of lists of movies that each user has watched as well as information about each movie (title, names of the stars, genre, length, etc.). You would like to make a model that will help you decide what movies to recommend to users.</li>
+    <li>You want a model to predict the number of deer that will be born in a breeding season. You have a large amount of historical data, and each row consists of the following information for the breeding season of a particular area and species:
+        <ul class="exercises_list">
+            <li>number of fawns born</li>
+            <li>the genus and species</li>
+            <li>number of does sighted during the mating season</li>
+            <li>vegetation quality during the mating season ("low", "average", or "high")</li>
+        </ul>
+    </li>
+    <li>You want your model to learn to play <a target="_blank" href="https://en.wikipedia.org/wiki/Frogger">Frogger</a>.</li>
+    <li>You would like a model to write tweets in the style of a particular user.</li>
+    <li>A company would like to be able to predict the next months' sales for each of its products. You have a dataset that the company has collected for many years, with data for a particular product on a particular month in each row. Each row contains the number of sales for the month, the number of sales from the previous month, the average rating (1-5) of the product in the previous month, the number of reviews in the previous month, the product type (e.g. "toaster", "coffee maker", "rice cooker"), its price the previous month, and its price for the current month.</li>
+    <li>You would like to predict the presence of a certain disease using chest x-ray data. You have a lot of x-ray images, a small amount of which have been labeled as having the disease or not having the disease. The rest of the images are unknown as to whether or not the person has the disease.</li>
+    <li>You have images that may contain wildlife, from motion-triggered cameras. You would like to be able to automatically label the images with the animals in them.</li>
+    <li>You would like to predict how long it will take you to complete an assignment in a particular class. For each assignment, you have the unit topic (there is a short list of possible topics), and the time that it took students in previous semesters, the number of problems in the assignment.</li>
+    <li>You would like to train a robot (equipped with a camera, a grabber mechanism, and a basket) to pick dirty clothes up off the floor.</li>
+    <li>You have data from a music streaming service that consists of lists of songs that each user has listened to. You would like to make a model that will help you decide what songs to recommend to users.</li>
+    <li>You have photos of road signs (already cropped down) from a particular country. You would like to make a model that can predict what kind of sign (yield, stop, construction, one way, no parking, etc.) it is.</li>
+    </li>You want a model to predict the yield of different crops under certain conditions. You have a large amount of historical data which gives the yield (in units of kilograms/hectare), the genus and species of the plant, the total precipitation in the previous year, the distribution of the rainfall ("even" or "uneven"), distance from the equator, altitude, relative humidity ratio (0-100), and the day length ("short", "long", or "neutral").</li>
+    <li>You would like a model to write short poems in the style of a particular poet.</li>
+</ul>
+
+<h4>Sample Answer</h4>
+
+<p>Scenario: You want to predict the age of an abalone (a type of shellfish). You have a <a target="_blank" href="http://archive.ics.uci.edu/ml/datasets/Abalone">dataset</a> that includes the age of the abalone, the sex ('M', 'F', and 'I'), the length, the diameter, the height, and the weight.
+    <ol>
+        <li>regression</li>
+        <li>age (included in dataset)</li>
+        <li>Length, diameter, height, and weight are numeric. Scale each of them between 0 and 1. For the sex feature, make it one-hot-encoded.</li>
+        <li>linear regression, maybe also try a fully connected neural network</li>
+        <li>R^2</li>
+        <li>Does the data collection cause harm to the abalone? Will the predictions be used in a way that would harm the abalone or the environment? What are the implications of model errors?</li>
+    </ol>
+</p>
+<h4>General Hints</h4>
+
+<ul>
+    <li>For clustering, all you need to be able to do is find the distance between two inputs. It is possible to take the distance between inputs like [1,0,0,1,1] and [1,0,0,1,0]. It does not have to be plotted in a way that humans can see it (in 2D or 3D).</li>
+    <li>If the dataset doesn't include targets/labels and you want to use a supervised method, then you may need to create the targets/labels by hand.</li>
+    <li>If you don't have labels/targets at all, you cannot use a supervised algorithm or a validation method that needs labels/targets.</li>
+    <li>Recall and precision go together. It is very rare that you would use one and not the other.</li>
 </ul>
