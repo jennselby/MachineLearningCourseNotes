@@ -4,7 +4,7 @@ layout: default
 
 ### Written by Jen Selby and Carl Shan
 
-# Course Notes
+# Introduction
 
 {% include machine_learning_categories.html %}
 
@@ -91,6 +91,8 @@ layout: default
 {% include reinforcement_learning.html %}
 
 {% include evolutionary_methods.html %}
+
+# Optional Topics
 
 {% include probabilistic_programming.html %}
 
