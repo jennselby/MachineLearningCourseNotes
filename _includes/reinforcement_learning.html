@@ -1,33 +1,29 @@
 <h2>Reinforcement Learning</h2>
 <p><strong>Reinforcement learning</strong> is somewhere in between supervised and unsupervised learning. It is meant to work with problems where we have an overall goal we want to get to, but we need the computer to learn lots of intermediate steps to get there, and we are not sure what those intermediate steps are.</p>
-<p>As input, we give our model a representation of the current state of a system and have it choose an action as output. We compute the next state of the system given that output and give the model a reward based on that new state. That is, we don't tell the model what answer we want (as we do in supervised learning), but we do tell it how much we liked its answer. It uses this reward (positive or negative) to learn what actions to take.</p>
-<p>For instance, if the model is learning to play checkers, we give it the current state of the board and have it pick among the legal moves available. If this move makes it win the game, we know that it gets a positive reward. If it makes it lose the game, we know that it gets a negative reward. Most of the time, we don't know (yet) what reward to give it. We want the model to learn what actions taken in a particular state should get credit for the reward, since it was certainly not the last action alone that did it. This is known as the <strong>credit assignment problem</strong>. </p>
 
-<h3>Q Learning</h3>
+<p>What we want is to give our model a representation of the current state of a system and have it choose the best action given that state. We compute the next state of the system given that action and give the model a reward based on that new state. That is, we don't tell the model what answer we want (as we do in supervised learning), but we do tell it how much we liked its answer. It uses this reward (positive or negative) to learn what actions to take.</p>
 
-<p>In  Q learning, the idea is that we are trying to learn a function <em>Q</em> that takes in two inputs -- the current state of the world and a particular action -- and returns the <em>quality</em> or value of taking that action from that state.</p>
-<p>In terms of making this more like a supervised problem, what we want is to have our model take in the current state of the environment and give us the correct quality value for each possible action that could be taken. (Alternatively, it could take in both the state and an action and return the quality value for that action only, but below I will be assuming that the action is not an input.)</p>
-<p>To gain training data, we start interacting with the environment, taking random actions and receiving rewards. As we build up (state, action, reward, new state) quadruplets, we can start using these as our training data. We randomly pick some of these as the next batch we'll show the model, a technique called <strong>experience replay</strong>. Randomly choosing the order can help the model train better, so that it is not seeing many similar states at one time, the way it would if we went chronologically.</p>
-<p>The label (the thing we are telling the model it <em>should</em> have returned, for training purposes) is the reward we actually got for taking that action in the input state. Of course, not every action we take gets a reward -- that's part of what makes this a reinforcement learning problem. If this action did not terminate the episode (and we might still get further rewards), then we set the target value to be the current reward plus the value of the new state that the action got us to (at a discount, because this state should not get full credit for the next state's worth).</p>
-<p>In other words, for a particular state, the targets for each action are</p>
-<ul>
-    <li> for every action that was not the one we took this time: the model's current value of that (state, action) pair</li>
-    <li>for the action we took
-        <ul>
-            <li>if it ended the episode: the reward we obtained</li>
-            <li>if the episode was still going: the reward we obtained + discount * max(value of each action possible from the next state)</li>
-        </ul>
-    </li>
-</ul>
-<p> After training on enough input states and values for each action from that state, the model learns to value the actions at a particular state well, meaning that the action with the maximum value is the best one to take in this state.</p>
+<p>Assigning the reward for an action can be tricky. For instance, if the model is learning to play checkers, we give it the current state of the board and have it pick among the legal moves available. If this move makes it win the game, we know that it gets a positive reward. If it makes it lose the game, we know that it gets a negative reward. Most of the time, however, we don't know yet what reward to give. We want the model to learn what actions taken in a particular state should get credit for the final reward, since it was certainly not the last action alone that did it. This is known as the <strong>credit assignment problem</strong>.</p>
 
-<h3>Policy Gradient</h3>
+<p>One way to think about reinforcement learning is that we are trying to learn a function <em>Q</em> that takes in two inputs -- the current state of the world and a particular action -- and returns the <em>quality</em> of taking that action from that state. We call this <strong>Q learning</strong>. By reframing the problem as trying to learn the quality of individual actions, we can make this look more like a supervised learning problem, with the targets being the correct quality for the state/action pair.</p>
 
-<p>Models like neural networks can be used to learn the Q function. Since neural networks learn using gradient descent, this technique is sometimes referred to as <strong>policy gradient</strong>. Another name is <strong>Deep Q Learning</strong>, a reference to the deep hierarchical structure of multi-layer neural networks.</p>
+<p>To gain training data, we start interacting with the environment, taking random actions and receiving rewards until we hit an end state, such as winning or losing a game. This is called a <strong>roll-out</strong> or <strong>episode</strong>. We might play many episodes initially before we start training. This allows us to build up many (state, action -&gt; reward) observations.</p>
 
-<p>To get training data and make this look more like a supervised learning problem, we perform a <strong>roll-out</strong> (or <strong>episode</strong>): we keep taking actions (choosing randomly, weighted by the probability outputs of the model) and updating the state until we hit a terminal condition and get a reward. After we have a bunch of these roll-outs, we use them to perform backpropagation to update the weights for every decision made in a roll-out. Thus, all actions taken in a roll-out that later gets a positive reward get encouraged (positive gradient) and all taken in a roll-out with a negative outcome get discouraged (negative gradient). That basic idea works surprisingly well, but for larger problems, you may need to use some tricks or optimizations such as <a target="_blank" href="https://arxiv.org/abs/1502.05477">Trust Region Policy Optimization</a>.</p>
+<p>Of course, not every action we take gets a reward -- that's part of what makes this a reinforcement learning problem. If this action did not finish the episode, then we set the target quality to be the current reward plus the quality of the new state that the action got us to (at a discount, because this state should not get full credit for the next state's worth).</p>
+<p>In other words, for a particular state and action, the target quality is
+    <ul>
+        <li>if it ended the episode: the reward we obtained from this action</li>
+        <li>if the episode was still going: the reward we obtained from this action + discount * max(current quality of each action possible from the next state)</li>
+    </ul>
+</p>
 
-<p>There are a number of ways to give a score to each action in the rollout, but the one way is to take each state/action pair and set its target value to be the sum of all of the rewards. Each reward is multiplied by a discount factor, raised to the number of steps left in that episode until the reward was reached. For any actions that were not taken from a particular state, their target can be the model's current estimate.</p>
+<p>Now, we can randomly pick some of the (state, action -&gt; reward) observations as a batch we'll use to train the model, a technique called <strong>experience replay</strong>. Randomly choosing the order can help the model train better, so that it is seeing a set that represents more of the landscape of the entire problem and not a collection of similar states, the way it would if we grouped our training data chronologically.</p>
+
+<p>We continue playing through episodes, choosing actions based on our improved understanding of the environment and using the results to continue to train our model. After training on enough observations, the model learns to value the actions well, and that the action with the highest quality for a particular state is the best one to take.</p>
+
+<p>When multi-layer neural networks are used to learn the Q function, we call this technique <strong>Deep Q Learning</strong>.</p>
+
+<p>Note: with neural networks, it is often easier not to have the action as an input and instead to output a quality score for each action. In this case, when training, the target quality for any action that wasn't taken in the observation is just set to be whatever the model currently thinks it should be.</p>
 
 <h3>Further Resources:</h3>
 <ul>
