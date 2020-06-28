@@ -1,0 +1,159 @@
+<canvas id="conv_canvas" width="1000" height="1000">
+</canvas>
+
+<script>
+function convertColor(color) {
+    let output = '';
+    for (var index = 0; index < color.length; ++index) {
+        hexString = color[index].toString(16);
+        if (hexString.length === 1) {
+            hexString = '0' + hexString;
+        }
+        output += hexString;
+    }
+    if (output.length === 2) {
+        output = output + output + output;
+    }
+    return output
+}
+
+function getFilterOutput(weights, stride, data) {
+    let output = [];
+    let imageX = 0;
+    let imageY = 0;
+    let outputX = 0;
+    let outputY = 0;
+    let imageSize = data.length;
+    let kernelSize = weights.length;
+    while (imageX + kernelSize <= imageSize) {
+        output[outputX] = [];
+        while (imageY + kernelSize <= imageSize) {
+            let positionOutput = 0;
+            for (var weightX = 0; weightX < kernelSize; ++weightX) {
+                for (var weightY = 0; weightY < kernelSize; ++weightY) {
+                    let colorWeights = weights[weightX][weightY];
+                    let color = data[imageX + weightX][imageY + weightY];
+                    for (var index = 0; index < color.length; ++index) {
+                        positionOutput += color[index] * colorWeights[index];
+                    }
+                }
+            }
+            output[outputX][outputY] = [Math.min(255,Math.max(0,positionOutput))];
+            outputY += 1;
+            imageY += stride;
+        }
+        outputY = 0;
+        imageY = 0;
+        outputX += 1;
+        imageX += stride;
+    }
+    return output;
+}
+
+function displayImage(imageTop, imageLeft, pixelSize, imageData) {
+    let imageSize = imageData.length;
+    let imageBottom = imageTop + pixelSize * imageSize;
+    let imageRight = imageLeft + pixelSize * imageSize;
+    for (var x = 0; x < imageSize; ++x) {
+        for (var y = 0; y < imageSize; ++y) {
+            let color = '#' + convertColor(imageData[x][y]);
+            context.fillStyle = color;
+            context.fillRect(imageLeft + x * pixelSize,
+                             imageTop + y * pixelSize,
+                             pixelSize,
+                             pixelSize);
+        }
+    }
+    context.fillStyle = "#000000";
+    context.moveTo(imageLeft, imageTop);
+    context.lineTo(imageLeft, imageBottom);
+    context.lineTo(imageRight, imageBottom);
+    context.lineTo(imageRight, imageTop);
+    context.lineTo(imageLeft, imageTop);
+    context.stroke();
+}
+
+let canvas = document.getElementById("conv_canvas");
+let context = canvas.getContext("2d");
+
+context.font = "24px Arial";
+
+let inputSize = 15;
+
+let inputData = [];
+for (var x = 0; x < inputSize; ++x) {
+    inputData[x] = [];
+    for (var y = 0; y < inputSize; ++y) {
+        if (   (x === 1 || x === (inputSize - 2))
+            && (y === 1 || y === (inputSize - 2))) {
+                // red squares
+                inputData[x][y] = [255,0,0];
+        }
+        else if ((x === 9 || y === 9) && (y !== 5)) {
+            // blue cross
+            inputData[x][y] = [0,0,255];
+        }
+        else if (x === 5 || y === 5) {
+            // red cross
+            inputData[x][y] = [255,0,0];
+        }
+        else if ((x === 1 && y == 3) || (x == 3 && y == inputSize - 2)) {
+            // blue square
+            inputData[x][y] = [0,0,255];
+        }
+        else {
+            // white background
+            inputData[x][y] = [255,255,255];
+        }
+    }
+}
+
+let stride = 2;
+
+let redFilterWeights = [[[0,0,0],[0,0,0],[0,0,0]],
+                        [[0,0,0],[1,-1,-1],[0,0,0]],
+                        [[0,0,0],[0,0,0],[0,0,0]]];
+let redFilterOutput = getFilterOutput(redFilterWeights, stride, inputData);
+
+let vertFilterWeights = [[[0,0,0],[0,0,0],[0,0,0]],
+                          [[-1,-1,1],[-1,-1,1],[-1,-1,1]],
+                          [[0,0,0],[0,0,0],[0,0,0]]];
+let vertFilterOutput = getFilterOutput(vertFilterWeights, stride, inputData);
+
+let horizFilterWeights = [[[0,0,0],[-1,-1,1],[0,0,0]],
+                          [[0,0,0],[-1,-1,1],[0,0,0]],
+                          [[0,0,0],[-1,-1,1],[0,0,0]]];
+let horizFilterOutput = getFilterOutput(horizFilterWeights, stride, inputData);
+console.log(horizFilterOutput);
+
+
+let margin = 30;
+let text_margin = 4;
+let pixelSize = 20;
+// display input image
+let inputTop = (margin*4 + redFilterOutput.length * pixelSize * 3) / 2 - pixelSize * inputSize /2;
+let inputLeft = margin;
+let inputBottom = inputTop + pixelSize * inputSize;
+let inputRight = inputLeft + pixelSize * inputSize;
+context.fillText("Input Image", inputLeft, inputTop - text_margin);
+displayImage(inputTop, inputLeft, pixelSize, inputData);
+
+let filterLeft = inputLeft + pixelSize * inputSize + margin * 2;
+
+// display red filter output
+let redFilterTop = margin*2;
+context.fillStyle = "#000000";
+context.fillText("Filter 1 Output", filterLeft, redFilterTop - text_margin);
+displayImage(redFilterTop, filterLeft, pixelSize, redFilterOutput);
+
+let vertFilterTop = margin*3 + redFilterOutput.length * pixelSize;
+context.fillStyle = "#000000";
+context.fillText("Filter 2 Output", filterLeft, vertFilterTop - text_margin);
+displayImage(vertFilterTop, filterLeft, pixelSize, vertFilterOutput);
+                           
+let horizFilterTop = margin*4 + redFilterOutput.length * pixelSize * 2;
+context.fillStyle = "#000000";
+context.fillText("Filter 3 Output", filterLeft, horizFilterTop - text_margin);
+displayImage(horizFilterTop, filterLeft, pixelSize, horizFilterOutput);
+
+</script>
