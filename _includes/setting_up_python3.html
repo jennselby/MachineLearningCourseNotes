@@ -8,27 +8,6 @@
 <p>and trying the following line at the <strong>&gt;&gt;&gt;</strong> prompt:</p>
 <pre>import matplotlib, numpy, scipy, sklearn</pre>
 <p>If you don't get any errors, you are all set! Hit Ctrl+d to exit the Python prompt.</p>
-<h3>Troubleshooting</h3>
-<p>If you get a warning like <pre>WARNING: You are using pip version 19.2.3, however version 19.3.1 is available.
-You should consider upgrading via the 'pip install --upgrade pip' command.</pre> then run</p>
-<pre>python3 -m pip install --upgrade pip</pre>
-<p>If you're running into errors installing matplotlib:</p>
-<pre>brew install pkg-config freetype</pre>
-<p>If you're running into errors installing scipy and it mentions gfortran:</p>
-<pre>brew install gcc</pre>
-<p>If you're getting an error about missing cython:</p>
-<pre>python3 -m pip install cython</pre>
-<p>If you get an error while installing sklearn about unsupported option '-fopenmp':</p>
-<pre>brew install libomp
-export CC=/usr/bin/clang
-export CXX=/usr/bin/clang++
-export CPPFLAGS="$CPPFLAGS -Xpreprocessor -fopenmp"
-export CFLAGS="$CFLAGS -I/usr/local/opt/libomp/include"
-export CXXFLAGS="$CXXFLAGS -I/usr/local/opt/libomp/include"
-export LDFLAGS="$LDFLAGS -L/usr/local/opt/libomp/lib -lomp"
-export DYLD_LIBRARY_PATH=/usr/local/opt/libomp/lib</pre>
-<p>For more details on this error, see <a href="https://github.com/scikit-learn/scikit-learn/issues/13371">here.</a></p>
-
 <h2>Learning Python</h2>
 <p>If you're new to Python, you might want to spend some time outside of class learning the syntax and how it compares to the other languages you know, so that you can more quickly get to the core concepts in your assignments. Since this is not an introductory programming class, we will not be going over these concepts all together, though of course we are always happy to answer questions as they come up.</p>
 <p>Here are some resources you can use:</p>
