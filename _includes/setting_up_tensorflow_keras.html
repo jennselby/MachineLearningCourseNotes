@@ -2,13 +2,9 @@
 <p>
     In terminal, run
     <pre>python3 -m pip install tensorflow<br />python3 -m pip install keras</pre>
-    As of 11/21/2019, Tensorflow doesn't officially support python 3.8 yet, so if you have that, you'll need to downgrade to Python 3.7.6. <br/>
-    First, get the python 3.7.6 installer <a target="_blank" href="https://www.python.org/downloads/release/python-376/">here.</a> Run the installer.<br/>
-    Open a new Terminal window. To confirm you're now running python 3.7.6, run "python --version" and see that it displays 3.7.6.<br/>
-    Install tensorflow and keras as above:
-    <pre>python3 -m pip install tensorflow<br />python3 -m pip install keras</pre>
-    You'll also need to reinstall previous packages, to make them run in Python 3.7.6:
-    <pre>python3 -m pip install matplotlib<br />python3 -m pip install scipy<br />python3 -m pip install scikit-learn<br/>python3 -m pip install jupyter</pre>
 </p>
-<h3>Troubleshooting</h3>
-<p>If you get an error like <pre>ModuleNotFoundError: No module named 'theano'</pre> then you need to switch the backend to tensorflow. See the instructions at <a target="_blank" href="https://keras.io/backend/">https://keras.io/backend/</a> or ask for help.</p>
+<p>After you have done this, check to make sure this worked by running</p>
+<pre>python3</pre>
+<p>and trying the following line at the <strong>&gt;&gt;&gt;</strong> prompt:</p>
+<pre>import keras</pre>
+<p>If you don't get any errors, you are all set! Hit Ctrl+d to exit the Python prompt.</p>
