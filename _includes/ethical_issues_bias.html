@@ -9,7 +9,7 @@
 
 <p>Another <a target="_blank" href="https://www.wired.com/story/machines-taught-by-photos-learn-a-sexist-view-of-women/">study showed that image-recognition models were learning sexist ideas through photos</a>, and seemed to actually be developing a stronger bias than was in the underlying data.</p>
 
-<p>The data that we use to train our algorithms are not inherently unbiased; as a result, the systematic inequities or skews that persist in our society may show up in our learned models.</p>
+<p>The data that we use to train our algorithms are not inherently unbiased nor are the researchers who train and validate them; as a result, the systematic inequities or skews that persist in our society may show up in our learned models.</p>
 
 
 <h3>Racial and Socioeconomic Bias</h3>
@@ -24,6 +24,8 @@
 
 <p><a target="_blank" href="http://www.nber.org/digest/sep03/w9873.html">If humans responding to resumes are racially or otherwise biased</a>, then training a model based to pick out resumes based on ones that were previously picked out will reflect that same problem. Another study of bias in resumes illustrates sensitivity to selection of training data. <a target="_blank" href="https://www.chicagotribune.com/business/ct-bias-hiring-0504-biz-20160503-story.html">This study found no racial bias in resume responses</a>, which might indicate improvements in this area. However, the researchers write "unlike in the Bertrand and Mullainathan study, we do not use distinctly African American-sounding first names because researchers have indicated concern that these names could be interpreted by employers as being associated with relatively low socioeconomic status". Instead they used last names of "Washington" and "Jefferson" which are apparently much more common among black families than white ones. They did not appear to have tested whether or not the typical resume reader would actually associate those last names with a particular racial group.</p>
 
+<p>In the spring of 2020, there was a lot of discussion about the <a target="_blank" href="http://pulse.cs.duke.edu/">PULSE</a> model that creates high-resolution images from low-resolution images. The model tended to create images of people who looked white when given low-resolution images of people of color. The <a target="_blank" href="https://twitter.com/Chicken3gg/status/1274314622447820801">ensuing argument</a> was around whether this racial bias could be solely or mostly attributed to a biased dataset, a common claim that oversimplifies the problems with many models. Many people recommended <a target="_blank" href="https://sites.google.com/view/fatecv-tutorial/schedule">a tutorial by researchers Timnit Gebru and Emily Denton</a> for a good explanation of the broader issues.</p>
+
 <h3>Political Bias</h3>
 
 <p>If machines are tasked with finding things you like, you may end up only ever seeing things that conform to your prior biases. Worse, if models are training to optimize for articles getting shared, then it is mostly sensationalist news <em>that is more likely to be wrong</em> that will be promoted. See for instance <a target="_blank" href="https://www.theguardian.com/us-news/2016/nov/16/facebook-bias-bubble-us-election-conservative-liberal-news-feed">experiments with people seeing the other side of Facebook</a>. In this study, some were swayed, but many felt their beliefs were reinforced, perhaps because of the tenor of the types of things likely to be shown.</p>
@@ -34,3 +36,4 @@
 <p>There have been a number of papers that have proposed different strategies for combatting bias in machine learning models. This <a target="_blank" href="https://www.oreilly.com/ideas/we-need-to-build-machine-learning-tools-to-augment-machine-learning-engineers">article summarizes many of these suggestions, and also links to the underlying research</a>.</p>
 
 <p>There are also organizations working on the problems of bias in AI, such as Joy Buolamwini's <a target="_blank" href="https://www.ajlunited.org/">Algorithmic Justice League</a>.</p>
+
