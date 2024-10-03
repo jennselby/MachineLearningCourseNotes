@@ -88,7 +88,7 @@ GEM
       nokogiri (>= 1.16.2, < 2.0)
       rouge (= 3.30.0)
       terminal-table (~> 1.4)
-      webrick (~> 1.8)
+      webrick (~> 1.8.2)
     github-pages-health-check (1.18.2)
       addressable (~> 2.3)
       dnsruby (~> 1.60)
